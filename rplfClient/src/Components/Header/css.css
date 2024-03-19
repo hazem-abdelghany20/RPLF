@@ -1,0 +1,10 @@
+.book__button{
+    background-color: #e1a54f;
+}
+
+.book__appointment {
+    background-color: #b48034;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

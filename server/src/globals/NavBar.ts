@@ -2,6 +2,10 @@ import { GlobalConfig } from "payload/types";
 
 const NavBar: GlobalConfig = {
     slug: 'nav-bar',
+    access: {
+        update: ()=>true,
+        read: ()=>true,
+      },
     fields : [
         {
             name : 'main-links',

@@ -30,7 +30,10 @@ export const Page: CollectionConfig = {
     useAsTitle: 'title',
   },
   access: {
-    read: (): boolean => true, 
+    create: ()=>true,
+    update: ()=>true,
+    delete: ()=>true,
+    read: ()=>true,
   },
   fields: [
     {

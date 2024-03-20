@@ -2,6 +2,10 @@ import { GlobalConfig } from "payload/types";
 import  FooterLogo  from "../collections/FooterLogo";
 const Footer: GlobalConfig = {
     slug: 'footer',
+    access: {
+        update: ()=>true,
+        read: ()=>true,
+      },
     fields : [
         {
            name: 'contact-info',

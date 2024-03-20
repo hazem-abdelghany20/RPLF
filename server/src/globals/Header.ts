@@ -3,6 +3,10 @@ import Logo from "../collections/Logo";
 
 const Header: GlobalConfig = {
     slug: 'footer',
+    access: {
+        update: ()=>true,
+        read: ()=>true,
+      },
     fields : [
         {
            name: 'email',

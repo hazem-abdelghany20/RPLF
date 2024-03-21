@@ -1,5 +1,7 @@
 import express from "express";
 import payload from "payload";
+import corsOptions from "./corsOptions";
+const cors = require("cors");
 
 require("dotenv").config();
 const app = express();
@@ -24,3 +26,4 @@ const start = async() => {
 
 
 start();
+app.use(cors(corsOptions))

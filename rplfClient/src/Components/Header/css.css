@@ -1,10 +1,57 @@
 .book__button{
     background-color: #e1a54f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5px;
 }
 
 .book__appointment {
     background-color: #b48034;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
+}
+
+.main {
+    height: 150px;
+    background-color: #0b2c35;
+    display: flex;
+    flex-direction: row;
+    gap: 90px;
+}
+
+.outer__contact{
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+}
+
+.contact__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.outer__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: auto;
+}
+
+.img__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.logo__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: 150px;
 }

@@ -1,0 +1,32 @@
+.cta2__outer__container {
+    display: flex;
+    flex-direction: row;
+    background-color: #e1a54f;
+    width: 600px;
+    height: 200px;
+    margin-top: 25px;
+    /*position: absolute;
+    top: 30%;
+    left: 10%;
+    */
+}
+
+.header {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.content {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

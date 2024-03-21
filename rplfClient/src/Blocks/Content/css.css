@@ -1,0 +1,25 @@
+.content_under_media{
+    display: flex;
+    flex-direction: column;
+}
+
+.content_above_media{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.content_left_to_media{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.content_right_to_media{
+    display: flex;
+    flex-direction: row;
+}
+
+.content_with_no_media{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

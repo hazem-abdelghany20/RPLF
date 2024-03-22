@@ -1,0 +1,15 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    top: 30%;
+    background-color: #063948;
+}
+
+.navigation__button{
+    background-color: transparent;
+    height: 100%;
+}

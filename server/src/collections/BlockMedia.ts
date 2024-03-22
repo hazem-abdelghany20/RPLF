@@ -4,6 +4,8 @@ const BlockMedia: CollectionConfig = {
   slug: 'block_media',
   labels:{
     singular: 'Block Media',
+    plural: 'Block Media',
+
   },
   access: {
     read: ()=> true,

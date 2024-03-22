@@ -1,21 +1,22 @@
 import { CollectionConfig } from 'payload/types';
-import { Image } from '.././blocks/Image/Config';
 import { Type as ImageType } from '../blocks/Image/Component';
 import { CallToAction } from '../blocks/CallToAction/Config';
 import { Type as CallToActionType } from '../blocks/CallToAction/Component';
-import { Content } from '../blocks/Content/Config';
-import { Type as ContentType } from '../blocks/Content/Component';
-import BackgroundImages from './BackgroundImages';
-import { MediaType } from './Media';
-//import {Image} from '../../blocks/Image/Config'
-
+import  ContentOverMedia  from '../blocks/Content_Over_Media/Config';
+import ContentBelowMedia from '../blocks/Content_Below_Media/Config';
+import ContentLeftMedia from '../blocks/Content_Left_Media/Config';
+import ContentRightMedia from '../blocks/Content_Right_Media/Config';
+import ContentNoMedia from '../blocks/Content_No_Media/Config';
+import ImageSlider from '../blocks/Image_Slider/Config';
+import Hero from '../blocks/Hero/Config';
+import { Type as ContentType } from '../blocks/Content_Over_Media/Component';
 
 export type Layout = CallToActionType | ContentType | ImageType
 
 export type Type = {
   title: string
   slug: string
-  images?: MediaType,
+  //images?: MediaType,
   layout: Layout[]
   meta: {
     title?: string
@@ -105,20 +106,19 @@ export const Page: CollectionConfig = {
       required: true,
     },
     {
-      name: 'background_image',
-      label: 'Background Image',
-      type: 'upload',
-      relationTo: BackgroundImages.slug,
-    },
-    {
       name: 'layout',
       label: 'Page Layout',
       type: 'blocks',
       minRows: 1,
       blocks: [
+        Hero,
+        ContentOverMedia,
+        ContentBelowMedia,
+        ContentLeftMedia,
+        ContentRightMedia,
+        ContentNoMedia,
         CallToAction,
-        Content,
-        Image,
+        ImageSlider
       ],
      // value:""
     },

@@ -31,7 +31,7 @@ export default buildConfig({
     BackgroundImages,
     //Blocks,
     Pages,
-    // BlockMedia,
+    BlockMedia,
     Media,
   ],
   globals:[

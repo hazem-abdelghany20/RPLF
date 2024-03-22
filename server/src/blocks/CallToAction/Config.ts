@@ -12,8 +12,16 @@ export const CallToAction: Block = {
   },
   fields: [
     {
-      name: 'content',
-      type: 'richText',
+      name:'headline',
+      label:"Headline",
+      type:'text',
+      //required:true,
+    },
+    {
+      name:'paragraph',
+      label:"Paragraph",
+      type:'text',
+      //required:true,
     },
     {
       name: 'buttons',

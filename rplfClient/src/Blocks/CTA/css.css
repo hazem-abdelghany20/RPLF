@@ -2,29 +2,34 @@
     display: flex;
     flex-direction: row;
     background-color: #063948;
-    width: 600px;
+    width: 700px;
     height: 250px;
+    gap: 100px;
     /*position: absolute;
     top: 30%;
     left: 10%;
     */
 }
 
-.header {
+.cta1_header {
     text-align: left;
     padding-left: 20px;
+    width: 100%;
+    text-wrap: wrap;
 }
 
-.content {
+.cta1_content {
     text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;
+    width: 40rem;
+    padding-right: 30px;
 }
 
-.buttons {
+.cta1_buttons {
     display: flex;
     flex-direction: row;
     justify-content: space-around;

@@ -1,36 +1,34 @@
 import React, { useState } from 'react';
-import './CardList.css'; // Import your CSS file for styling
-import Card from './Card';
+import './css.css'; // Import your CSS file for styling
 
-const CardList = ({cards}) => {
+
+const Slider = ({ images }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
-
+    console.log(images)
     const cardsPerPage = 3;
 
     const handleNext = () => {
-        setCurrentIndex(prevIndex => (prevIndex + 1) % cards.length);
+        setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
     };
 
     const handlePrev = () => {
-        setCurrentIndex(prevIndex => (prevIndex - 1 + cards.length) % cards.length);
+        setCurrentIndex(prevIndex => (prevIndex - 1 + images.length) % images.length);
     };
 
     return (
         <div className="carousel-container">
-            <div>
-                <h2>WHAT’S NEW AT QUINN EMANUEL?</h2>
-            </div>
+            <button className="prev" onClick={handlePrev}>❮</button>
             <div className="carousel">
-                {[...cards, ...cards, ...cards].slice(currentIndex, currentIndex + cardsPerPage).map((card, index) => (
-                    <div className="card" key={index}>
-                        <Card title={card.title} text={card.text} />
+                {[...images, ...images, ...images].slice(currentIndex, currentIndex + cardsPerPage).map((image, index) => (
+                    <div className='frame'>
+                        <img src="call.png" width={"350px"} height={"250px"} />
                     </div>
                 ))}
             </div>
-            <button className="prev" onClick={handlePrev}>❮</button>
+
             <button className="next" onClick={handleNext}>❯</button>
         </div>
     );
 };
 
-export default CardList;
+export default Slider;

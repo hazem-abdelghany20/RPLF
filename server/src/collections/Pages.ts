@@ -9,6 +9,8 @@ import ContentRightMedia from '../blocks/Content_Right_Media/Config';
 import ContentNoMedia from '../blocks/Content_No_Media/Config';
 import ImageSlider from '../blocks/Image_Slider/Config';
 import Hero from '../blocks/Hero/Config';
+import Numbers from '../blocks/Numbers/Config';
+import ContentSlider from '../blocks/Content_Slider/Config';
 import { Type as ContentType } from '../blocks/Content_Over_Media/Component';
 
 export type Layout = CallToActionType | ContentType | ImageType
@@ -112,13 +114,15 @@ export const Page: CollectionConfig = {
       minRows: 1,
       blocks: [
         Hero,
+        Numbers,
         ContentOverMedia,
         ContentBelowMedia,
         ContentLeftMedia,
         ContentRightMedia,
         ContentNoMedia,
         CallToAction,
-        ImageSlider
+        ImageSlider,
+        ContentSlider
       ],
      // value:""
     },

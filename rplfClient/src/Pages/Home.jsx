@@ -19,7 +19,7 @@ const Home = () => {
         return (
             <div>
                 <Header/>
-                <Hero image={data[0].background_image} layout={data[0].layout} />
+                <Hero layout={data[0].layout.filter(block => block.blockType == "hero")} />
             </div>
         )
     }

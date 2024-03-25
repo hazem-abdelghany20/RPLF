@@ -1,7 +1,7 @@
 import "./css.css"
 
 const CTA2 = ({block}) => {
-
+    console.log(block)
     const goTo = (url , newTab) =>{
         
     }
@@ -9,7 +9,8 @@ const CTA2 = ({block}) => {
     return (
         <div className="cta2__outer__container">
             <div className="header">
-                {block.content[0].type === "h1" && (
+                <h3>{block[0].headline}</h3>
+                {/* {block.content[0].type === "h1" && (
                     <h1>{block.content[0].children[0].text}</h1>
                 )}
                 {block.content[0].type === "h2" && (
@@ -23,13 +24,13 @@ const CTA2 = ({block}) => {
                 )}
                 {block.content[0].type === "h5" && (
                     <h5>{block.content[0].children[0].text}</h5>
-                )}
+                )} */}
             </div>
             <div className="content">
-                <p>{block.content[1].children[0].text}</p>
-                <div className="buttons">
+                <p>{block[0].paragraph}</p>
+                <div className="cta2_buttons">
                     {
-                        block.buttons.map(button => (
+                        block[0].buttons.map(button => (
                             <button onClick={() => goTo(button.url, button.newTab)}>
                                 {button.label}
                             </button>

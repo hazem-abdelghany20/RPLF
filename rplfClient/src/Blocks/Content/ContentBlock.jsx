@@ -1,48 +1,17 @@
 
 
-const Content = ({ content, media , style }) => {
-    console.log(style)
-    //console.log(media)
-    return (
-        <div className={style}>
-            <div>
-                {
-                    media.map(one => (
-                        <img src={one.value.filename} />
-                    ))
-                }
-                
-            </div>
 
-            <div>
-                {
-                    content.map(block => {
-                        return(
-                            <h1>{block.children[0].text}</h1>
-                        )
-                        // switch (block.type) {
-                        //     case "h1":
-                        //         return (
-                        //             <h1>{block.children[0].text}</h1>
-                        //         )
-                        //     case "h2":
-                        //         return (
-                        //             <h2>{block.children[0]}</h2>
-                        //         )
-                        //     case "h3":
-                        //         return (
-                        //             <h3>{block.children[0]}</h3>
-                        //         )
-                        //     case "h4":
-                        //         return (
-                        //             <h4>{block.children[0]}</h4>
-                        //         )
-                        // }
-                    })
-                }
+const ContentBlock = ({content}) =>{
+
+    return(
+        <div style={{display : "flex", flexDirection : "row" ,justifyContent:"space-around" , gap:"200px",backgroundColor : "#0c2c34" }}>
+            <div style={{display:"flex",flexDirection: "column" , justifyContent : "center" , paddingLeft : "100px"}}>
+                <h2 style={{textAlign : "left" , fontSize : "40px" , width : "110%"}}>{"Business Dispute Litigation in Cairo"}</h2>
+                <p style={{textAlign : "left"}}>{"Stuart Chelin brings a unique combination of experience and skills to serve clients looking for an attorney to represent them in corporate/commercial business disputes and business arrangements and agreements. Please read Stuart’s full bio."}</p>
             </div>
+            <img src="pharoah.png" width={"500px"} height={"400px"}></img>
         </div>
     )
 }
 
-export default Content
+export default ContentBlock

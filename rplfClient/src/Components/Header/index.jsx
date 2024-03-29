@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom"
 import NavBar from "../NavBar"
 import './css.css'
 
-const Header = () => {
+const Header = ({docs}) => {
+    //console.log(docs)
 
     return (
         <div className="outer__container">
@@ -18,10 +20,12 @@ const Header = () => {
 
             <div className="main">
                 <div className="logo__container">
-                    <img src="logo.png" width={"400px"} height={"100px"} />
+                    <Link to={"/"}>
+                        <img src="logo.png" width={"400px"} height={"100px"} />
+                    </Link>
                 </div>
 
-                <div style={{display:"flex",flexDirection:"row"}}>
+                <div style={{ display: "flex", flexDirection: "row" }}>
                     <div className="outer__contact">
                         <div className="img__container">
                             <img src="call.png" width={"75px"} height={"75px"} />
@@ -44,7 +48,7 @@ const Header = () => {
                 </div>
             </div>
 
-            <NavBar/>
+            <NavBar docs={docs} />
         </div>
     )
 }

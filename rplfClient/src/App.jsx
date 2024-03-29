@@ -4,12 +4,17 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Home from './Pages/Home'
 import Header from './Components/Header'
+import { Route, Routes } from 'react-router'
+import Page from './Components/Page/Page'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-   <Home/>
+    <Routes>
+      <Route path='/' element={<Home/>} />
+      <Route path='/:title' element={<Page/>}/>
+    </Routes>
   )
 }
 

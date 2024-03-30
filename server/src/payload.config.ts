@@ -22,6 +22,15 @@ export default buildConfig({
   admin: {
     user: Admins.slug,
     bundler: webpackBundler(),
+    meta: {
+      titleSuffix: '- Ragy Law Firm',
+      favicon: '/assets/logo.jpg',
+      ogImage: '/assets/logo.jpg',
+    },
+    // components: {
+    //   graphics: {
+    //   },
+    // },
   },
   editor: slateEditor({}),
   collections: [

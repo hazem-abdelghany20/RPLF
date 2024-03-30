@@ -1,0 +1,27 @@
+.navigation__button{
+    background-color: transparent;
+    height: 100%;
+}
+
+.navigation__button:hover{
+    background-color: white;
+    color: black;
+}
+
+@keyframes fadeInMoveUp {
+    0% {
+      opacity: 0; /* Start with opacity 0 */
+      transform: translateY(20px); /* Start position at the bottom of the container */
+    }
+    50% {
+      opacity: 1; /* Opacity increases halfway through the animation */
+    }
+    100% {
+      transform: translateY(0); 
+      opacity: 1;/* Move the element up until a certain point */
+    }
+}
+
+.dropdown {
+    animation: fadeInMoveUp 500ms forwards;
+}

@@ -1,0 +1,27 @@
+.carousel-container {
+    /*margin: -230px 0 0 0;
+    z-index: 999;*/
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+.carousel {
+    display: flex;
+    gap: 50px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.card {
+    margin-right: 10px; /* Adjust spacing between cards */
+    padding-left: 0px;
+}
+
+.slider__button {
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}

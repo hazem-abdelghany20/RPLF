@@ -1,0 +1,41 @@
+.outer__container__card {
+    height: 308px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+
+.first__part {
+    height : 5px;
+    width: 380px;
+    background-color: lightskyblue;
+}
+.first__part__hover{
+    height : 5px;
+    width: 380px;
+    background-color: yellow;
+}
+
+.second__part__hover{
+    background-color: transparent;
+    text-align: left;
+    height: 308px;
+    width: 320px;
+    padding: 30px;
+    background-color:#14656B;
+}
+
+.second__part {
+    background-color: rgba(255, 255, 255, 0.15);
+    /*box-shadow: 1px 0px 0px 1px #000000,-1px 0px 0px 1px #000000;*/
+    text-align: left;
+    height: 308px;
+    width: 320px;
+    padding: 30px;
+}
+
+.second__part:hover + .first__part {
+    background-color: yellow;
+}

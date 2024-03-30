@@ -1,7 +1,7 @@
 import "./css.css"
 
 const CTA2 = ({block}) => {
-    console.log(block)
+    //console.log(block)
     const goTo = (url , newTab) =>{
         
     }

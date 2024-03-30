@@ -4,7 +4,7 @@ import './css.css'; // Import your CSS file for styling
 
 const Slider = ({ images }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    console.log(images)
+    //console.log(images)
     const cardsPerPage = 3;
 
     const handleNext = () => {

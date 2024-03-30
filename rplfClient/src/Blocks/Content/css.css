@@ -1,25 +1,30 @@
 .content_under_media{
     display: flex;
     flex-direction: column;
+    padding-top: 35px;
 }
 
 .content_above_media{
     display: flex;
     flex-direction: column-reverse;
+    padding-top: 35px;
 }
 
-.content_left_to_media{
+.content_left_media{
     display: flex;
     flex-direction: row-reverse;
+    padding-top: 35px;
 }
 
-.content_right_to_media{
+.content_right_media{
     display: flex;
     flex-direction: row;
+    padding-top: 35px;
 }
 
 .content_with_no_media{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-top: 35px;
 }

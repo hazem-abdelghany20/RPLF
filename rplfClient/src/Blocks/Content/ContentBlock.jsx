@@ -1,48 +1,17 @@
+import './css.css'
 
 
-const Content = ({ content, media , style }) => {
-    console.log(style)
-    //console.log(media)
-    return (
-        <div className={style}>
-            <div>
-                {
-                    media.map(one => (
-                        <img src={one.value.filename} />
-                    ))
-                }
-                
+const ContentBlock = ({content}) =>{
+    //console.log(content.blockType)
+    return(
+        <div className={content.blockType} >
+            <div style={{display:"flex",flexDirection: "column" , justifyContent : "center" , paddingLeft : "100px"}}>
+                <h2>{content.headline}</h2>
+                <p style={{textAlign : "left"}}>{content.paragraph}</p>
             </div>
-
-            <div>
-                {
-                    content.map(block => {
-                        return(
-                            <h1>{block.children[0].text}</h1>
-                        )
-                        // switch (block.type) {
-                        //     case "h1":
-                        //         return (
-                        //             <h1>{block.children[0].text}</h1>
-                        //         )
-                        //     case "h2":
-                        //         return (
-                        //             <h2>{block.children[0]}</h2>
-                        //         )
-                        //     case "h3":
-                        //         return (
-                        //             <h3>{block.children[0]}</h3>
-                        //         )
-                        //     case "h4":
-                        //         return (
-                        //             <h4>{block.children[0]}</h4>
-                        //         )
-                        // }
-                    })
-                }
-            </div>
+            <img src="pharoah.png" width={"500px"} height={"400px"}></img>
         </div>
     )
 }
 
-export default Content
+export default ContentBlock

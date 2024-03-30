@@ -1,8 +1,12 @@
 import express from "express";
+import path from 'path';
 import payload from "payload";
 import fuzzy from "fuzzy";
 import levenshtein  from "fast-levenshtein";
 import corsOptions from "./corsOptions";
+
+import sendEmail from "./utils/mail";
+
 const cors = require("cors");
 
 require("dotenv").config();
@@ -11,11 +15,11 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
+app.use('/assets', express.static(path.resolve(__dirname, './assets')));
 
 app.get('/', (_, res) => {
   res.redirect('/dashboard');
 });
-
 
 
 app.get('/api/search', async (req, res) => { 
@@ -68,6 +72,35 @@ app.get('/api/search', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch data from API' });
   }
 });
+
+
+app.post('/api/send-email', async (req, res) => {
+  const { emails} = req.body;
+
+  if (!emails || emails.length === 0) {
+      return res.status(400).send({ message: "Emails are required." });
+  }
+
+  const subject = "TEST EMAIL RPLF"
+  const text = "THIS IS A TEST EMAIL FROM RPLF."
+
+  const results = await sendEmail(emails, subject, text);
+
+  const allSuccess = results.every(result => result === true);
+
+  if (allSuccess) {
+      res.send({ message: "All emails sent successfully!" });
+  } else {
+      res.status(207).send({ 
+          message: "Some emails may not have been sent successfully.",
+          results: results.map((success, index) => ({
+              email: emails[index],
+              success: success,
+          })),
+      });
+  }
+});
+
 
 
 const start = async() => {

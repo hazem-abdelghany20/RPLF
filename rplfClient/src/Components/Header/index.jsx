@@ -6,7 +6,7 @@ const Header = ({docs}) => {
     //console.log(docs)
 
     return (
-        <div className="outer__container">
+        <div className="header__outer__container">
             <div className="book__appointment">
                 <div>
                     <p>Bravery, courage, fear and love in a time of war</p>

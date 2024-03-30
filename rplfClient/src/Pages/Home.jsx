@@ -26,7 +26,7 @@ const Home = () => {
 
     if (data !== null && docs != null) {
         return (
-            <div>
+            <div style={{width: "100%"}}>
                 <Header docs={docs}/>
                 
                 {

@@ -2,16 +2,19 @@ import { useEffect, useState } from "react"
 import axios from 'axios'
 import './css.css'
 import NavButton from "../NavButton"
-const NavBar = ({ items , docs}) => {
+const NavBar = ({ items, docs }) => {
     const [data, setData] = useState(null)
 
 
+    const callApi = async () => {
+        const response = await axios.get('http://localhost:3000/api/globals/nav-bar?locale=undefined&draft=false&depth=1')
+        setData(response.data["main-links"])
+        console.log(response.data["main-links"])
+    }
     useEffect(() => {
-        axios.get('http://localhost:3000/api/globals/nav-bar?locale=undefined&draft=false&depth=1').then(response => {
-            setData(response.data["main-links"])
-            //console.log(response.data)
-        })
-    })
+        callApi()
+    }, [])
+
     if (data !== null) {
         return (
             <div className="navbar">
@@ -39,7 +42,7 @@ const NavBar = ({ items , docs}) => {
                             )
                         case "Immigration":
                             return (
-                                <NavButton key={index} title={item.link} width={75} height={200}pages={docs.filter(page => page.linked_to == "immigration")} />
+                                <NavButton key={index} title={item.link} width={75} height={200} pages={docs.filter(page => page.linked_to == "immigration")} />
                             )
                         case "Legal Translation":
                             return (

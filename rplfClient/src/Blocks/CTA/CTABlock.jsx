@@ -1,9 +1,18 @@
+import { useNavigate } from "react-router"
 import "./css.css"
 
 const CTA = ({block}) => {
+    const navigate = useNavigate()
     //console.log(block)
-    const goTo = (url , newTab) =>{
-        
+    const goTo = (type ,page, url , newTab) =>{
+        if(type == "page"){
+            if(page.title == "Home"){
+                navigate(`/`)
+            }else{
+                navigate(`/${page.title}`)
+            }
+           
+        }
     }
 
     return (
@@ -31,7 +40,7 @@ const CTA = ({block}) => {
                 <div className="cta1_buttons">
                     {
                         block[0].buttons.map(button => (
-                            <button onClick={() => goTo(button.url, button.newTab)}>
+                            <button onClick={() => goTo(button.type,button.page,button.url, button.newTab)}>
                                 {button.label}
                             </button>
                         ))

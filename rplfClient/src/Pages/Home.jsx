@@ -7,16 +7,17 @@ import ContentBlock from '../Blocks/Content/ContentBlock'
 import NumbersBlock from '../Blocks/Numbers/NumberBlock'
 import { useSearchParams } from 'react-router-dom'
 import CardList from '../Blocks/Text Slider/CardList'
+import CTABlock3 from '../Blocks/CTA3/CTABlock3'
 
 
 const Home = () => {
     const [data, setData] = useState(null)
-    const[docs,setDocs] = useState(null)
+    const [docs, setDocs] = useState(null)
     useEffect(() => {
         getInfo()
-    })
+    },[])
     const getInfo = async () => {
-        axios.get('http://localhost:3000/api/pages').then(response => {
+        await axios.get('http://localhost:3000/api/pages').then(response => {
             const data = response.data.docs.filter(page => page.title.toLowerCase() == "home")
             //console.log(response.data.docs.filter(page => page.title.toLowerCase() == "home"))
             setData(data[0])
@@ -26,22 +27,44 @@ const Home = () => {
 
     if (data !== null && docs != null) {
         return (
-            <div style={{width: "100%"}}>
-                <Header docs={docs}/>
-                
+            <div style={{ width: "100%" }}>
+                <Header docs={docs} />
+
                 {
-                    data.layout.filter(block => block.blockType == "hero").map(hero => (
-                        <Hero hero={hero}/>
-                    ))
+                    data.layout.map(block => {
+                        //console.log(block)
+                        switch (block.blockType) {
+                            case "hero":
+                                return (
+                                    <Hero hero={block} />
+                                )
+                            case "content_left_media":
+                            case "content_right_media":
+                            case "content_below_media":
+                            case "content_above_media":
+                                return (
+                                    <ContentBlock content={block} />
+                                )
+                            case "content_slider":
+                                return(
+                                    <CardList block={block} />
+                                )
+                            case "numbers" :
+                                return(
+                                    <NumbersBlock block={block} />
+                                )
+                            case "cta" :
+                                //console.log("cta")
+                                return(
+                                    <CTABlock3 block={block}/>
+                                )
+                        }
+                    })
                 }
-                {
-                    data.layout.filter(block => block.blockType == "content_right_media" || block.blockType == "content_left_media" || block.blockType == "content_above_media" || block.blockType == "content_below_media").map(content => (
-                        <ContentBlock content={content}/>
-                    ))
-                }
-                <NumbersBlock/>
-                <CardList/>
-                
+
+
+
+
             </div>
         )
     }

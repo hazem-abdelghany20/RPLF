@@ -1,0 +1,30 @@
+.cta3__outer__container{
+    display: flex;
+    flex-direction: column;
+    background-color: #dee5f6;
+
+}
+
+.header{
+    text-align: center;
+    color: black;
+}
+
+.buttons__container{
+    display: flex;
+    flex-direction: row;
+    width: 55%;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 20px;
+}
+
+.button{
+    background-color: #d59a45;
+}
+
+.buttons__outer__container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

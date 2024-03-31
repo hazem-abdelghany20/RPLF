@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import ContentBlock from '../../Blocks/Content/ContentBlock'
 import axios from 'axios'
 import Hero from '../../Blocks/Hero/Hero'
+import CardList from '../../Blocks/Text Slider/CardList'
 
 const Page = () => {
     const [data, setData] = useState(null)
@@ -27,7 +28,12 @@ const Page = () => {
                 <Header docs={docs} />
                 {
                     data.layout.map(block => {
+                        //console.log(block)
                         switch (block.blockType) {
+                            case "hero":
+                                return (
+                                    <Hero hero={block} />
+                                )
                             case "content_left_media":
                             case "content_right_media":
                             case "content_below_media":
@@ -35,11 +41,19 @@ const Page = () => {
                                 return (
                                     <ContentBlock content={block} />
                                 )
-                            case "hero":
-                                return(
-                                    <Hero hero={block}/>
+                            case "content_slider":
+                                return (
+                                    <CardList block={block} />
                                 )
-
+                            case "numbers":
+                                return (
+                                    <NumbersBlock block={block} />
+                                )
+                            case "cta":
+                                //console.log("cta")
+                                return (
+                                    <CTABlock3 block={block} />
+                                )
                         }
                     })
                 }

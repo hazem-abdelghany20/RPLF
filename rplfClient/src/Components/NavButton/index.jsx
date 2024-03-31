@@ -8,12 +8,13 @@ const NavButton = ({ id, title, pages, width, height, maxWidth }) => {
     const [moveLeft, setMoveLeft] = useState(0)
 
     const navButtonRef = useRef(null); 
-    width = width + (20 / 16) * width
+    width = width + (pages.length / 16) * width
     useEffect(() => {
         const navButtonElement = navButtonRef.current; 
         if (navButtonElement) {
             const left = navButtonElement.getBoundingClientRect().left;
             setLeftPosition(left);
+            console.log(title)
             console.log(left)
             if (width + (left + (0.1 * window.innerWidth)) > window.innerWidth) {
                 console.log('here')
@@ -54,12 +55,12 @@ const NavButton = ({ id, title, pages, width, height, maxWidth }) => {
                                 </li>
                             ))
                         }
-                        {/* Additional test links */}
+                        {/* Additional test links
                         {[...Array(20)].map((_, index) => (
                             <li key={index}>
                                 <Link>{"Test"}</Link>
                             </li>
-                        ))}
+                        ))} */}
                     </div>
                 )
             }

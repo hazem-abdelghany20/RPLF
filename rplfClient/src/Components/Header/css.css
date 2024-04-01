@@ -18,7 +18,8 @@
     background-color: #0b2c35;
     display: flex;
     flex-direction: row;
-    gap: 90px;
+    --min-gap: 90px; /* Minimum gap */
+    gap: calc(var(--min-gap) + 5vw); /* Adjust the gap based on screen width */
 }
 
 .outer__contact{

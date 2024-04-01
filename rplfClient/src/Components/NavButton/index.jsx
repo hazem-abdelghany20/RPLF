@@ -47,7 +47,7 @@ const NavButton = ({ id, title, pages, width, height, maxWidth }) => {
             {
                 hover &&
                 (
-                    <div className="dropdown" style={{ width: `${width}px`, height: `${height}px`, backgroundColor: "white", position: "absolute", left: `${moveLeft == 0? (leftPosition - (0.1*window.innerWidth)) : leftPosition - moveLeft}px`, color: "black", textAlign: "left", display: "flex", flexDirection: "column", flexWrap: "wrap", paddingLeft: "20px", paddingTop: "20px" }} onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
+                    <div className="dropdown" style={{ width: `${width}px`, height: `${height}px`, backgroundColor: "white", position: "absolute", left: `${moveLeft == 0? "0px" : leftPosition - moveLeft}px`, color: "black", textAlign: "left", display: "flex", flexDirection: "column", flexWrap: "wrap", paddingLeft: "20px", paddingTop: "20px" }} onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
                         {
                             pages.map((page, index) => (
                                 <li key={index}>

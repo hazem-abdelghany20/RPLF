@@ -5,6 +5,8 @@ import ContentBlock from '../../Blocks/Content/ContentBlock'
 import axios from 'axios'
 import Hero from '../../Blocks/Hero/Hero'
 import CardList from '../../Blocks/Text Slider/CardList'
+import CTABlock3 from '../Blocks/CTA3/CTABlock3'
+import NumbersBlock from '../Blocks/Numbers/NumberBlock'
 
 const Page = () => {
     const [data, setData] = useState(null)

@@ -24,7 +24,7 @@ const Hero = ({ hero }) => {
                 </div>
             </div>
 
-            <Slider images={hero.image_slider[0].images} />
+            
         </div>
     )
 }

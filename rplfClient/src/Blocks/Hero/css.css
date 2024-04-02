@@ -23,6 +23,11 @@
         padding-top: 1rem !important;
         padding-left: 1rem;
     }
+
+    .ctas__container{
+        flex-direction: column !important;
+        margin: 0px 0px 0px 0px;
+    }
 }
 .image {
     background-position: center;

@@ -18,7 +18,7 @@ const CTA = ({block}) => {
     return (
         <div className="cta__outer__container">
             <div className="cta1_header">
-                <h2 style={{fontSize : "40px"}}>{block[0].headline}</h2>
+                <h2 className="cta1_header_title">{block[0].headline}</h2>
                 {/* {block.content[0].type === "h1" && (
                     <h1>{block.content[0].children[0].text}</h1>
                 )}

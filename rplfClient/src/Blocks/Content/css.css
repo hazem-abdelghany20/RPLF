@@ -4,6 +4,18 @@
     padding-top: 35px;
 }
 
+@media screen and (max-width: 841px) {
+    .content__image{
+        width: 200px !important;
+        height: 150px !important;
+    }
+
+    .text__container {
+        position: relative;
+        width: 100%;
+    }
+}
+
 .content_above_media{
     display: flex;
     flex-direction: column-reverse;
@@ -27,4 +39,9 @@
     flex-direction: column;
     justify-content: center;
     padding-top: 35px;
+}
+
+.content__image{
+    width: 500px;
+    height: 400px;
 }

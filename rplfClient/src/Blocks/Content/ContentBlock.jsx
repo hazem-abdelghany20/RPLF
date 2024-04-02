@@ -7,9 +7,10 @@ const ContentBlock = ({content}) =>{
         <div className={content.blockType} >
             <div style={{display:"flex",flexDirection: "column" , justifyContent : "center" , paddingLeft : "100px"}}>
                 <h2>{content.headline}</h2>
-                <p style={{textAlign : "left"}}>{content.paragraph}</p>
+                <p className='text__container' style={{textAlign : "left"}}>{content.paragraph}</p>
             </div>
-            <img src="pharoah.png" width={"500px"} height={"400px"}></img>
+            {content.blockType !== 'content_with_no_media' && 
+            <img className="content__image" src="pharoah.png"></img>}
         </div>
     )
 }

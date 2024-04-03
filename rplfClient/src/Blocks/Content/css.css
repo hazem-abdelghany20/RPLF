@@ -10,9 +10,13 @@
         height: 150px !important;
     }
 
-    .text__container {
+    .content__container {
         position: relative;
         width: 100%;
+    }
+
+    .text__container{
+        padding-left: 10px !important;
     }
 }
 
@@ -44,4 +48,11 @@
 .content__image{
     width: 500px;
     height: 400px;
+}
+
+.text__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 100px;
 }

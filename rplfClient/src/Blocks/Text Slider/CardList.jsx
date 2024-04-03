@@ -4,7 +4,7 @@ import Card from './Card';
 
 const CardList = ({block}) => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const cardsPerPage = 3;
+    const cardsPerPage = 1;
     const cards = block.content_array
 
     const handleNext = () => {

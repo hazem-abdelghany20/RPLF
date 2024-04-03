@@ -32,7 +32,7 @@ const CTA2 = ({block}) => {
                     <h5>{block.content[0].children[0].text}</h5>
                 )} */}
             </div>
-            <div className="content">
+            <div className="cta2_content">
                 <p>{block[0].paragraph}</p>
                 <div className="cta2_buttons">
                     {

@@ -13,14 +13,21 @@ const transporter = nodemailer.createTransport({
   });
 
   
-  async function sendEmail(to: string[], subject: string, text: string, html?: string): Promise<boolean[]> {
-    const sendPromises = to.map(email => {
-        let mailOptions: nodemailer.SendMailOptions = {
+  interface EmailContent {
+    to: string;
+    subject: string;
+    text: string;
+    html?: string;
+}
+
+async function sendEmail(emails: EmailContent[]): Promise<boolean[]> {
+    const sendPromises = emails.map(({ to, subject, text, html }) => {
+        const mailOptions: nodemailer.SendMailOptions = {
             from: `"Ragy & Partners Lawfirm" <${process.env.SMTP_EMAIL}>`,
-            to: email, 
+            to: to,
             subject: subject,
             text: text,
-            ...(html && { html: html }), 
+            ...(html && { html: html }),
         };
 
         return transporter.sendMail(mailOptions)

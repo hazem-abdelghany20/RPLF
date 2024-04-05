@@ -1,48 +1,46 @@
-import { Link } from "react-router-dom"
-import NavBar from "../NavBar"
-import './css.css'
+import { Link } from "react-router-dom";
+import NavBar from "../NavBar";
 
-const Header = ({docs}) => {
-    //console.log(docs)
-
+const Header = ({ docs }) => {
     return (
-        <div className="header__outer__container">
-            <div className="book__appointment">
-                <div>
+        <div className="flex flex-col w-full">
+            <div className="flex flex-row justify-around items-center bg-[#b48034]">
+                <div className="text-sm md:text-md">
                     <p>Bravery, courage, fear and love in a time of war</p>
                 </div>
                 <div>
-                    <button className="book__button">
-                        Book an appointment
+                    <button className="bg-[#e1a54f] hover:bg-[#b48034] border-2 text-sm md:text-md border-[#e1a54f] rounded-none flex flex-row justify-center my-1 py-1 px-4">
+                        Book<span className="md:inline-block hidden ml-1">an appointment</span>
                     </button>
                 </div>
             </div>
 
-            <div className="main">
-                <div className="logo__container">
+            <div className="flex flex-row justify-around bg-[#0b2c35] h-[150px] md:gap-20">
+                <div className="flex flex-col items-center justify-around">
                     <Link to={"/"}>
-                        <img src="logo.png" width={"400px"} height={"100px"} />
+                        <img src="logo.png" className="w-[280px] h-[70px] md:w-[400px] md:h-[100px]" />
                     </Link>
                 </div>
+                
 
-                <div style={{ display: "flex", flexDirection: "row" }}>
-                    <div className="outer__contact">
-                        <div className="img__container">
-                            <img src="call.png" width={"75px"} height={"75px"} />
+                <div className="hidden md:flex flex-row text-sm md:text-md">
+                    <div className="flex flex-col w-[100px] md:flex-row md:w-[200px]">
+                        <div className="flex flex-col items-center justify-around">
+                            <img src="call.png" className="size-[40px] md:size-[75px]" />
                         </div>
-                        <div className="contact__info">
-                            <span> Call Us:</span>
+                        <div className="flex flex-col text-left justify-center">
+                            <span>Call Us:</span>
                             <span>01000000000</span>
                         </div>
                     </div>
 
-                    <div className="outer__contact">
-                        <div className="img__container">
-                            <img src="call.png" width={"75px"} height={"75px"} />
+                    <div className="flex flex-col w-[100px] md:flex-row md:w-[200px]">
+                        <div className="flex flex-col items-center justify-around">
+                            <img src="mail-icon.svg" className="size-[40px] md:size-[75px]" />
                         </div>
-                        <div className="contact__info">
-                            <span> Email Us:</span>
-                            <span>01000000000</span>
+                        <div className="flex flex-col text-left justify-center">
+                            <span>Email Us:</span>
+                            <span>info@example.com</span>
                         </div>
                     </div>
                 </div>
@@ -50,8 +48,7 @@ const Header = ({docs}) => {
 
             <NavBar docs={docs} />
         </div>
-    )
-}
+    );
+};
 
-
-export default Header
+export default Header;

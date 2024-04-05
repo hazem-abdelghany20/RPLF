@@ -1,51 +1,32 @@
-import "./css.css"
-
-const CTA2 = ({block}) => {
-    //console.log(block)
-    const goTo = (type ,page, url , newTab) =>{
-        if(type == "page"){
-            if(page.title == "Home"){
-                navigate(`/`)
-            }else{
-                navigate(`/${page.title}`)
+const CTA2 = ({ block }) => {
+    // Assuming `navigate` is defined or imported elsewhere in your real code
+    const goTo = (type, page, url, newTab) => {
+        if (type === "page") {
+            if (page.title === "Home") {
+                navigate(`/`);
+            } else {
+                navigate(`/${page.title}`);
             }
-           
         }
-    }
+    };
+
     return (
-        <div className="cta2__outer__container">
-            <div className="header">
+        <div className="flex flex-row bg-[#e1a54f] w-[80vw] lg:w-[30vw] h-[20vh] md:h-[15vh] lg:h-[30vh] mt-[25px] px-8 mx-auto lg:mx-1">
+            <div className="header text-left">
                 <h3>{block[0].headline}</h3>
-                {/* {block.content[0].type === "h1" && (
-                    <h1>{block.content[0].children[0].text}</h1>
-                )}
-                {block.content[0].type === "h2" && (
-                    <h2>{block.content[0].children[0].text}</h2>
-                )}
-                {block.content[0].type === "h3" && (
-                    <h3>{block.content[0].children[0].text}</h3>
-                )}
-                {block.content[0].type === "h4" && (
-                    <h4>{block.content[0].children[0].text}</h4>
-                )}
-                {block.content[0].type === "h5" && (
-                    <h5>{block.content[0].children[0].text}</h5>
-                )} */}
             </div>
-            <div className="cta2_content">
+            <div className="flex flex-col justify-center items-center gap-[20px] text-left">
                 <p>{block[0].paragraph}</p>
-                <div className="cta2_buttons">
-                    {
-                        block[0].buttons.map(button => (
-                            <button onClick={() =>goTo(button.type,button.page,button.url, button.newTab)}>
-                                {button.label}
-                            </button>
-                        ))
-                    }
+                <div className="flex flex-row justify-around w-full">
+                    {block[0].buttons.map((button, index) => (
+                        <button key={index} className="bg-[#55330B] w-full px-4 py-2 rounded-none text-white text-semibold border-2 border-[#55330B] hover:bg-transparent transition-colors" onClick={() => goTo(button.type, button.page, button.url, button.newTab)}>
+                            {button.label}
+                        </button>
+                    ))}
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default CTA2
+export default CTA2;

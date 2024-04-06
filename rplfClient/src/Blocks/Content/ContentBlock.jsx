@@ -1,18 +1,59 @@
-import './css.css'
+import React from 'react';
 
+const ContentBlock = ({ content }) => {
+    switch (content.blockType) {
+        case "content_right_media":
+            return (
+                <div className={`flex flex-row pt-10`}>
+                    <div className="flex flex-col justify-center pl-24 xs:pl-5 space-y-8">
+                        <b><h2 className='text-4xl'>{content.headline}</h2></b>
+                        <p className="text-left">{content.paragraph}</p>
+                    </div>
+                    <img className="xs:w-[200px] xs:h-[290px] md:w-500 md:h-400 mt-20" src="pharoah.png" alt="Content Image"></img>
+                </div>
+            )
+        case "content_left_media":
+            return (
+                <div className={`flex flex-row-reverse pt-10`}>
+                    <div className="flex flex-col justify-center pl-24 xs:pl-5 space-y-8">
+                        <b><h2 className='text-4xl'>{content.headline}</h2></b>
+                        <p className="text-left">{content.paragraph}</p>
+                    </div>
+                    <img className="xs:w-[200px] xs:h-[290px] md:w-500 md:h-400 mt-20" src="pharoah.png" alt="Content Image"></img>
+                </div>
 
-const ContentBlock = ({content}) =>{
-    //console.log(content.blockType)
-    return(
-        <div className={content.blockType} >
-            <div className='text__container'>
-                <h2>{content.headline}</h2>
-                <p className='content__container' style={{textAlign : "left"}}>{content.paragraph}</p>
-            </div>
-            {content.blockType !== 'content_with_no_media' && 
-            <img className="content__image" src="pharoah.png"></img>}
-        </div>
-    )
+            )
+        case "content_no_media":
+            return (
+                <div className={`flex flex-row justify-center pt-10`}>
+                    <div className="flex flex-col justify-center pl-24 xs:pl-5 space-y-8">
+                        <b><h2 className='text-4xl'>{content.headline}</h2></b>
+                        <p className="text-left">{content.paragraph}</p>
+                    </div>
+                </div>
+            )
+        case "content_under_media":
+            return (
+                <div className={`flex flex-col sm:flex-row pt-10`}>
+                    <div className="flex flex-col justify-center pl-24 xs:pl-5 space-y-8">
+                        <b><h2 className='text-4xl'>{content.headline}</h2></b>
+                        <p className="text-left">{content.paragraph}</p>
+                    </div>
+                    <img className="xs:w-[200px] xs:h-[290px] md:w-500 md:h-400" src="pharoah.png" alt="Content Image"></img>
+                </div>
+            )
+        case "content_above_media":
+            return (
+                <div className={`flex flex-col-reverse sm:flex-row pt-10`}>
+                    <div className="flex flex-col justify-center pl-24 xs:pl-5 space-y-8">
+                        <b><h2 className='text-4xl'>{content.headline}</h2></b>
+                        <p className="text-left">{content.paragraph}</p>
+                    </div>
+                    <img className="xs:w-[200px] xs:h-[290px] md:w-500 md:h-400 mt-20" src="pharoah.png" alt="Content Image"></img>
+                </div>
+
+            )
+    }
 }
 
-export default ContentBlock
+export default ContentBlock;

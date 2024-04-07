@@ -16,6 +16,7 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 
 app.use('/assets', express.static(path.resolve(__dirname, './assets')));
+app.use('/block-media', express.static(path.resolve(__dirname, './block-media')));
 
 app.get('/', (_, res) => {
   res.redirect('/dashboard');

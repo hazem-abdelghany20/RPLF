@@ -13,14 +13,14 @@ const NumbersBlock = ({ block }) => {
             <div className="flex flex-row justify-center">
                 <div className="flex flex-col lg:flex-row xs:flex-col justify-center gap-[100px] mt-[50px] pb-[50px]">
                     {/* Left Block */}
-                    <div className="flex flex-col w-[250px] lg:w-[300px] lg:ml-[20px] lg:text-[14px] h-[250px] pt-[25px] ml-[20px]" >
+                    <div className="flex flex-col w-[250px] lg:w-[300px] lg:ml-[20px] h-[250px] pt-[25px] ml-[20px]" >
                         <div className="bg-[#dee5f6] flex flex-row justify-center align-center h-[40%] text-[black] font-bold text-[55px]">
                             <p>{block.number1}</p>
                         </div>
 
-                        <div className="bg-[#2494a2] flex flex-col justify-center h-[60%] text-[black]">
-                            <h5>{block.sub_headline_1}</h5>
-                            <span>{block.sub_paragraph_1}</span>
+                        <div className="bg-[#2494a2] flex flex-col h-[60%] gap-[5px] text-[black] p-5 text-xs md:text-[14px]">
+                            <h5 className="font-bold text-lg">{block.sub_headline_1}</h5>
+                            <span className="font-medium">{block.sub_paragraph_1}</span>
                         </div>
 
                     </div>
@@ -31,27 +31,24 @@ const NumbersBlock = ({ block }) => {
                             <p>{block.number2}</p>
                         </div>
 
-                        <div className="bg-[#2494a2] flex flex-col justify-center h-[60%] text-[black]" style={{ backgroundColor: "#d59a45" }}>
-                            <h5>{block.sub_headline_2}</h5>
-                            <span>{block.sub_paragraph_2}</span>
+                        <div className="bg-[#d59a45] flex flex-col gap-[20px] h-[60%] text-[black] p-7 text-xs md:text-[14px]">
+                            <h5 className="font-bold text-lg">{block.sub_headline_2}</h5>
+                            <span className="font-medium">{block.sub_paragraph_2}</span>
                         </div>
 
 
 
                     </div>
                     {/* Right Block */}
-                    <div className="flex flex-col w-[250px] lg:w-[300px] lg:ml-[20px] lg:text-[14px] h-[250px] pt-[25px] ml-[20px]">
-
+                    <div className="flex flex-col w-[250px] lg:w-[300px] lg:ml-[20px] h-[250px] pt-[25px] ml-[20px]" >
                         <div className="bg-[#dee5f6] flex flex-row justify-center align-center h-[40%] text-[black] font-bold text-[55px]">
                             <p>{block.number3}</p>
                         </div>
 
-                        <div className="bg-[#2494a2] flex flex-col justify-center h-[60%] text-[black]">
-                            <h5>{block.sub_headline_3}</h5>
-                            <span>{block.sub_paragraph_3}</span>
+                        <div className="bg-[#2494a2] flex flex-col h-[60%] gap-[5px] text-[black] p-5 text-xs md:text-[14px]">
+                            <h5 className="font-bold text-lg">{block.sub_headline_3}</h5>
+                            <span className="font-medium">{block.sub_paragraph_3}</span>
                         </div>
-
-
 
                     </div>
                 </div>

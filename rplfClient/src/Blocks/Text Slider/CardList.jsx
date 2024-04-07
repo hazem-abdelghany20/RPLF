@@ -3,28 +3,27 @@ import Card from './Card';
 
 const CardList = ({ block }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    var cardsPerPage;
-    const width = document.documentElement.clientWidth
-    console.log(width)
-    if (width > 1800) {
-        cardsPerPage = 5
-    } else {
-        if (width > 1500) {
-            cardsPerPage = 4
-        } else {
-            if (width > 1250) {
-                cardsPerPage = 3
-            } else {
-                if (width > 650) {
-                    cardsPerPage = 2
-                } else {
-                    cardsPerPage = 1
-                }
-            }
-        }
-    }
-    const cards = block.content_array;
-
+    var cardsPerPage = 5;
+    
+    var cards = block.content_array;
+    cards = [
+        {
+            title: "Firm News 1",
+            content: "Another Year - Still 'Most Feared 1",
+        },
+        {
+            title: "Firm News 2",
+            content: "Another Year - Still 'Most Feared' 2",
+        },
+        {
+            title: "Firm News 3",
+            content: "Another Year - Still 'Most Feared' 3",
+        },
+        {
+            title: "Firm News 4",
+            content: "Another Year - Still 'Most Feared' 4",
+        },
+    ];
     const handleNext = () => {
         setCurrentIndex(prevIndex => (prevIndex + 1) % cards.length);
     };
@@ -43,15 +42,15 @@ const CardList = ({ block }) => {
             </div>
             
             <div className="flex items-center pt-16 pb-16 pl-[20px]">
-            <button className="absolute top-50 z-10 left-[0px] " onClick={handlePrev}>❮</button>
-                <div className="flex gap-10 justify-content transition-transform duration-500 ease-in-out ml-24 xs:ml-0  xs:w-full " style={{ transform: `translateX(-${currentIndex * 100 / cardsPerPage}%)` }}>
+            <button className="absolute bg-[transparent] top-50 z-10 left-[0px] " onClick={handlePrev}>❮</button>
+                <div className="flex gap-10 justify-content transition-transform duration-500 ease-in-out ml-2 md:ml-11 xs:w-full overflow-hidden" >
                     {[...cards, ...cards, ...cards].slice(currentIndex, currentIndex + cardsPerPage).map((card, index) => (
-                        <div key={index} className="xs:w-full">
+                        <div key={index} className="w-full">
                             <Card text={card.content} />
                         </div>
                     ))}
                 </div>
-                <button className="absolute left-[93%] mr-14 z-10" onClick={handleNext}>❯</button>
+                <button className="absolute bg-[transparent] left-[85%] md:left-[93%] mr-14 z-10" onClick={handleNext}>❯</button>
             </div>
         </div>
     );

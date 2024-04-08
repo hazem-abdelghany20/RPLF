@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import NavBar from "../NavBar";
+import CollapseNavbar from "../CollapseNavbar";
+import Accordion from "../NavAccordion";
 
 const Header = ({ docs }) => {
     return (
@@ -15,15 +17,17 @@ const Header = ({ docs }) => {
                 </div>
             </div>
 
-            <div className="flex flex-row justify-around bg-[#0b2c35] h-[150px] md:gap-20">
-                <div className="flex flex-col items-center justify-around">
+            <div className="flex flex-row justify-around items-center bg-[#0b2c35] h-[150px] md:gap-20">
+                <div className="flex flex-row items-center justify-around mr-5">
+                {/* <Accordion docs={docs}/> */}
                     <Link to={"/"}>
-                        <img src="logo.png" className="w-[280px] h-[70px] md:w-[400px] md:h-[100px]" />
+                        <img src="logo.png" className="ml-3 w-[280px] h-[70px] md:w-[400px] md:h-[100px]" />
                     </Link>
+                <CollapseNavbar docs={docs}/>
                 </div>
                 
 
-                <div className="hidden md:flex flex-row text-sm md:text-md">
+                <div className="hidden lg:flex flex-row text-sm md:text-md">
                     <div className="flex flex-col w-[100px] md:flex-row md:w-[200px]">
                         <div className="flex flex-col items-center justify-around">
                             <img src="call.png" className="size-[40px] md:size-[75px]" />

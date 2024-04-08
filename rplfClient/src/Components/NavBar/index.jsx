@@ -15,7 +15,7 @@ const NavBar = ({ items, docs }) => {
 
     return (
         // Adjusted for centering
-        <div className="hidden md:block absolute w-4/5 left-1/2 top-[12rem] bg-[#063948] bg-opacity-70 transform -translate-x-1/2">
+        <div className="hidden lg:block absolute w-4/5 left-1/2 top-[12rem] bg-[#063948] bg-opacity-70 transform -translate-x-1/2">
             <div className="flex flex-row justify-between">
                 {data && data.map((item, index) => {
                     return (

@@ -18,7 +18,7 @@ const AccordionItem = ({ title, pages }) => { // Removed `key` from here
           <ul>
             {pages.map((page, index) => (
               <li key={index} className="list-none rounded-none text-left">
-                <Link to={`/${page.title}`} className="text-white hover:text-[#e1a54f] no-underline bg-[#0b2c35] rounded-none">{page.title}</Link>
+                <Link to={`/${page.title}`} className="font-medium text-white hover:text-[#e1a54f] no-underline bg-[#0b2c35] rounded-none">{page.title}</Link>
               </li>
             ))}
           </ul>
@@ -49,7 +49,7 @@ const Accordion = ({ docs }) => {
       {data.map((item, index) => (
         <AccordionItem key={index} title={item.link} pages={docs.filter(doc => doc.linked_to === item.link.toLowerCase().replace(/\s/g, '_'))} />
       ))}
-      {/* { !data || data.length === 0 && <AccordionItem key="fallback" title={'In case the data isn\'t fetched'} pages={['lol','this','is','my','list']}/>} */}
+      {/* { !data || data.length === 0 && <AccordionItem key="fallback" title={'In case the data isn\'t fetched'} pages={[{title:'lol'},{title:'lol'},,{title:'lol'},]}/>} */}
     <div className='my-2 pt-2 pb-1 flex flex-col items-center justify-center'>Call us: 01000000000</div>
     <div className='my-2 pt-2 pb-1 flex flex-col items-center justify-center'>Email us: info@example.com</div>
     <hr />

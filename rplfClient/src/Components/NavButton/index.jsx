@@ -46,7 +46,7 @@ const NavButton = ({ id, title, pages, width, height, maxWidth }) => {
                 >
                     {pages.map((page, index) => (
                         <li key={index} className="list-none text-white hover:text-[#e1a54f]">
-                            <Link to={`/${page.title}`} className="text-white no-underline hover:text-[#e1a54f]">{page.title}</Link>
+                            <Link to={`/${page.title}`} className="px-3 text-white no-underline hover:text-[#e1a54f]">{page.title}</Link>
                         <hr className="my-1"/>
                         </li>
                     ))}

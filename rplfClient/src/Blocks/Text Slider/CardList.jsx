@@ -42,7 +42,7 @@ const CardList = ({ block }) => {
             </div>
 
             <div className="flex items-center pt-16 pb-16 pl-[20px]">
-                <button className="absolute bg-[transparent] top-50 z-10 left-[-100px] text-8xl font-thin " onClick={handlePrev}>〈</button>
+                <button className="absolute bg-[transparent] top-50 z-10 lg:left-[-100px] lg:text-8xl font-thin " onClick={handlePrev}>〈</button>
                 <div className="flex gap-10 justify-content transition-transform duration-500 ease-in-out ml-2 md:ml-11 xs:w-full overflow-hidden lg:ml-[-300px]" >
                     {[cards[cards.length-1], ...cards,...cards].slice(currentIndex, currentIndex + cardsPerPage).map((card, index) => (
                         <div key={index} className="w-full">
@@ -50,7 +50,7 @@ const CardList = ({ block }) => {
                         </div>
                     ))}
                 </div>
-                <button className="absolute bg-[transparent] left-[85%] md:left-[85%] mr-14 z-10 text-8xl" onClick={handleNext}>❯</button>
+                <button className="absolute bg-[transparent] left-[85%] md:left-[85%] mr-14 z-10 lg:text-8xl" onClick={handleNext}>❯</button>
             </div>
         </div>
     );

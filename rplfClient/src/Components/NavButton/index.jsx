@@ -26,7 +26,7 @@ const NavButton = ({ id, title, pages, width, height, maxWidth }) => {
     return (
         <div id={id} ref={navButtonRef} className="relative">
             <button 
-                className="rounded-none bg-transparent h-full hover:bg-white hover:text-[#063948]"
+                className="rounded-none bg-transparent h-full hover:bg-white text-xs xl:text-sm 2xl:text-md hover:text-[#063948]"
                 onMouseEnter={mouseEnter} 
                 onMouseLeave={mouseLeave}
             >
@@ -35,7 +35,7 @@ const NavButton = ({ id, title, pages, width, height, maxWidth }) => {
 
             {hover && (
                 <div 
-                    className="dropdown absolute bg-[#063948] text-left flex flex-col flex-wrap p-5"
+                    className="dropdown absolute bg-[#063948] text-xs 2xl:text-md text-left flex flex-col flex-wrap p-5 px-0 mx-0"
                     style={{ 
                         width: `${width}px`, 
                         height: `${height}px`, 

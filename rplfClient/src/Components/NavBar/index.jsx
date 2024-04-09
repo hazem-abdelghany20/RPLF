@@ -23,9 +23,10 @@ const NavBar = ({ items, docs }) => {
                     );
                 })}
                 <div>
-                    <button className="bg-transparent ">
-                        <img src='search-icon.svg' alt='search icon' className="w-[50px]"/>
-                    </button>
+                <button className="bg-transparent my-3 relative flex justify-center items-center h-12 w-12">
+    <img src='search-icon.svg' alt='search icon' className="size-8 absolute top-1/2 left-3 transform -translate-x-1/2 -translate-y-1/2"/>
+</button>
+
                 </div>
             </div>
         </div>

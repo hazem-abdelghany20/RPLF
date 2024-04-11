@@ -6,6 +6,9 @@ import Home from './Pages/Home'
 import Header from './Components/Header'
 import { Route, Routes } from 'react-router'
 import Page from './Components/Page/Page'
+import NumbersBlock from './Blocks/Numbers/NumberBlock'
+import Slider from './Blocks/Slider/Slider'
+import CardList from './Blocks/Text Slider/CardList'
 
 function App() {
   const [count, setCount] = useState(0)

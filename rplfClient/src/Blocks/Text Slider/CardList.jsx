@@ -25,7 +25,15 @@ const CardList = ({ block }) => {
         },
     ];
     const handleNext = () => {
-        setCurrentIndex(prevIndex => (prevIndex + 1) % cards.length);
+        const newIndex = currentIndex + 1
+        if(newIndex < cards.length + 1){
+            console.log("here " + newIndex)
+            setCurrentIndex(newIndex)
+        }else{
+            console.log("here2 " + newIndex)
+            setCurrentIndex(0)
+        }
+        //setCurrentIndex(prevIndex => (prevIndex + 1) % cards.length);
     };
 
     const handlePrev = () => {
@@ -42,15 +50,20 @@ const CardList = ({ block }) => {
             </div>
 
             <div className="flex items-center pt-16 pb-16 pl-[20px]">
-                <button className="absolute bg-[transparent] top-50 z-10 lg:left-[-100px] lg:text-8xl font-thin " onClick={handlePrev}>〈</button>
+                <button className="absolute bg-[transparent] left-[-10px] top-50 z-10 lg:left-[-100px] lg:text-8xl  font-thin " onClick={handlePrev}>
+                    <img src="left-arrow.png" className='w-[50px] h-[50px]' alt="Arrow Right Icon" />
+
+                </button>
                 <div className="flex gap-10 justify-content transition-transform duration-500 ease-in-out ml-2 md:ml-11 xs:w-full overflow-hidden lg:ml-[-300px]" >
-                    {[cards[cards.length-1], ...cards,...cards].slice(currentIndex, currentIndex + cardsPerPage).map((card, index) => (
+                    {[cards[0], ...cards, ...cards].slice(currentIndex, currentIndex + cardsPerPage).map((card, index) => (
                         <div key={index} className="w-full">
                             <Card text={card.content} />
                         </div>
                     ))}
                 </div>
-                <button className="absolute bg-[transparent] left-[85%] md:left-[85%] mr-14 z-10 lg:text-8xl" onClick={handleNext}>❯</button>
+                <button className="absolute bg-[transparent] left-[75%] md:left-[85%] lg:left-[93%] md:mr-4 z-10 " onClick={handleNext}>
+                    <img src="right-arrow.png" className='w-[50px] h-[50px]' alt="Arrow Right Icon" />
+                </button>
             </div>
         </div>
     );

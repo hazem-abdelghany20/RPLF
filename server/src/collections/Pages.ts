@@ -11,6 +11,7 @@ import ImageSlider from '../blocks/Image_Slider/Config';
 import Hero from '../blocks/Hero/Config';
 import Numbers from '../blocks/Numbers/Config';
 import ContentSlider from '../blocks/Content_Slider/Config';
+import BackgroundWithTitle from '../blocks/Background_With_Title/Config';
 import { Type as ContentType } from '../blocks/Content_Over_Media/Component';
 
 export type Layout = CallToActionType | ContentType | ImageType
@@ -115,6 +116,7 @@ export const Page: CollectionConfig = {
       blocks: [
         Hero,
         Numbers,
+        BackgroundWithTitle,
         ContentOverMedia,
         ContentBelowMedia,
         ContentLeftMedia,
@@ -122,7 +124,7 @@ export const Page: CollectionConfig = {
         ContentNoMedia,
         CallToAction,
         ImageSlider,
-        ContentSlider
+        ContentSlider,
       ],
      // value:""
     },

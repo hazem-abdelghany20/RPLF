@@ -25,7 +25,7 @@ const BlockMedia: CollectionConfig = {
       },
     ],
     adminThumbnail: 'thumbnail',
-    mimeTypes: ['image/*'],
+    mimeTypes: ['image/*', 'video/mp4', 'video/webm', 'video/ogg'],
   },
   fields: [
     {

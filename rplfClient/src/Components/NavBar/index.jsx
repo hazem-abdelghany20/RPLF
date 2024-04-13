@@ -1,12 +1,12 @@
 import { useEffect, useState, useRef  } from "react";
 import axios from 'axios';
-import './css.css';
 import NavButton from "../NavButton";
 import { TextField, IconButton , Button, List, ListItem, ListItemText, Paper } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
 const NavBar = ({ items, docs }) => {
     const [data, setData] = useState(null);
+<<<<<<< HEAD
     const [searchEntry, setSearchEntry] = useState('');
     const [searchResults, setSearchResults] = useState({ mainLinks: [], pageNames: [] });
     const [showResults, setShowResults] = useState(false); // New state to control results visibility
@@ -21,8 +21,14 @@ const NavBar = ({ items, docs }) => {
         const response = await axios.get('http://localhost:3000/api/globals/nav-bar?locale=undefined&draft=false&depth=1');
         setData(response.data["main-links"]);
     };
+=======
+>>>>>>> 52f179e33520e57b70a401fe341f459e14857d70
 
     useEffect(() => {
+        const callApi = async () => {
+            const response = await axios.get('http://localhost:3000/api/globals/nav-bar?locale=undefined&draft=false&depth=1');
+            setData(response.data["main-links"]);
+        };
         callApi();
 
         const handleClickOutside = (event) => {
@@ -75,6 +81,7 @@ const NavBar = ({ items, docs }) => {
         Object.entries(searchResults.mainLinks).some(([_, linkDetails]) => linkDetails.pages.length > 0);
     
 
+<<<<<<< HEAD
     if (data !== null) {
         return (
             <div className="navbar">
@@ -167,12 +174,27 @@ const NavBar = ({ items, docs }) => {
                         )}
                     </div>
                     )}
+=======
+    return (
+        // Adjusted for centering
+        <div className="hidden lg:block absolute w-4/5 left-1/2 top-[12rem] bg-[#063948] bg-opacity-70 transform -translate-x-1/2">
+            <div className="flex flex-row justify-between">
+                {data && data.map((item, index) => {
+                    return (
+                        <NavButton key={index} title={item.link} width={150} height={200} pages={docs.filter(page => page.linked_to === item.link.toLowerCase().replace(/\s/g, '_'))} maxWidth={window.innerWidth} />
+                    );
+                })}
+                <div>
+                <button className="bg-transparent my-3 relative flex justify-center items-center h-12 w-12">
+    <img src='search-icon.svg' alt='search icon' className="size-8 absolute top-1/2 left-3 transform -translate-x-1/2 -translate-y-1/2"/>
+</button>
+
+>>>>>>> 52f179e33520e57b70a401fe341f459e14857d70
                 </div>
 
             </div>
-        )
-    }
-}
+        </div>
+    );
+};
 
-
-export default NavBar
+export default NavBar;

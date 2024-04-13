@@ -4,8 +4,11 @@ import payload from "payload";
 import fuzzy from "fuzzy";
 import levenshtein  from "fast-levenshtein";
 import corsOptions from "./corsOptions";
+<<<<<<< HEAD
 
 import cors from "cors";
+=======
+>>>>>>> 52f179e33520e57b70a401fe341f459e14857d70
 import sendEmail from "./utils/mail";
 
 
@@ -18,15 +21,20 @@ app.use(cors({
 }));
 
 app.use(express.json());
+app.use(cors(corsOptions))
 
 app.use('/assets', express.static(path.resolve(__dirname, './assets')));
+app.use('/block-media', express.static(path.resolve(__dirname, './block-media')));
 
 app.get('/', (_, res) => {
   res.redirect('/dashboard');
 });
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 52f179e33520e57b70a401fe341f459e14857d70
 interface MainLinkData {
     slug: string;
     pages: string[];
@@ -171,4 +179,3 @@ const start = async() => {
 
 
 start();
-app.use(cors(corsOptions))

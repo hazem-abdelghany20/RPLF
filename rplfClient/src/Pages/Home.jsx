@@ -20,7 +20,7 @@ const Home = () => {
     const getInfo = async () => {
         await axios.get('http://localhost:3000/api/pages').then(response => {
             const data = response.data.docs.filter(page => page.title.toLowerCase() == "home")
-            //console.log(response.data.docs.filter(page => page.title.toLowerCase() == "home"))
+            console.log(response.data.docs.filter(page => page.title.toLowerCase() == "about us"))
             setData(data[0])
             setDocs(response.data.docs)
         })
@@ -37,8 +37,11 @@ const Home = () => {
                         switch (block.blockType) {
                             case "hero":
                                 return (
-                                    <PlainHero/>
-                                    // <Hero hero={block} />
+                                    <Hero hero={block} />
+                                )
+                            case "background_with_title":
+                                return(
+                                    <PlainHero block={block}/>
                                 )
                             case "content_left_media":
                             case "content_right_media":

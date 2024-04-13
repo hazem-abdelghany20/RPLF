@@ -1,14 +1,11 @@
 
 
 const PlainHero = ({block}) => {
-    block = {
-        headline : "Its about drive,Its about power.We stay hungary we devour",
-        background_image : ""
-    }
+    console.log(block)
     return (
         <div
             className="h-[1000px] lg:h-[400px] bg-center bg-no-repeat bg-cover"
-            style={{ backgroundImage: 'url(background.png)' }}
+            style={{ backgroundImage: `url(${`http://localhost:3000/block-media/${block.media.filename}`})` }}
         >
             <div className="flex flex-row justify-center pt-32">
                 <div className="max-w-full mx-auto text-left">

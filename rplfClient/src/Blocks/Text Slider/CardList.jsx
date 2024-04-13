@@ -26,10 +26,10 @@ const CardList = ({ block }) => {
     ];
     const handleNext = () => {
         const newIndex = currentIndex + 1
-        if(newIndex < cards.length + 1){
+        if (newIndex < cards.length + 1) {
             console.log("here " + newIndex)
             setCurrentIndex(newIndex)
-        }else{
+        } else {
             console.log("here2 " + newIndex)
             setCurrentIndex(0)
         }
@@ -50,9 +50,8 @@ const CardList = ({ block }) => {
             </div>
 
             <div className="flex items-center pt-16 pb-16 pl-[20px]">
-                <button className="absolute bg-[transparent] left-[-10px] top-50 z-10 lg:left-[-100px] lg:text-8xl  font-thin " onClick={handlePrev}>
-                    <img src="left-arrow.png" className='w-[50px] h-[50px]' alt="Arrow Right Icon" />
-
+                <button className="absolute bg-[transparent] left-[-30px] top-50 z-10 lg:left-[-150px] lg:text-8xl  font-thin " onClick={handlePrev}>
+                    <img src="left-arrow.png" className='w-[75px] h-[75px] md:w-[150px] md:h-[150px]' alt="Arrow Right Icon" />
                 </button>
                 <div className="flex gap-10 justify-content transition-transform duration-500 ease-in-out ml-2 md:ml-11 xs:w-full overflow-hidden lg:ml-[-300px]" >
                     {[cards[0], ...cards, ...cards].slice(currentIndex, currentIndex + cardsPerPage).map((card, index) => (
@@ -61,8 +60,8 @@ const CardList = ({ block }) => {
                         </div>
                     ))}
                 </div>
-                <button className="absolute bg-[transparent] left-[75%] md:left-[85%] lg:left-[93%] md:mr-4 z-10 " onClick={handleNext}>
-                    <img src="right-arrow.png" className='w-[50px] h-[50px]' alt="Arrow Right Icon" />
+                <button className="absolute bg-[transparent] left-[85%] md:left-[80%] lg:left-[93%] md:mr-4 z-10 overflow-hidden p-0 " onClick={handleNext}>
+                    <img src="right-arrow.png" className='w-[75px] h-[75px] md:w-[150px] md:h-[150px]' alt="Arrow Right Icon" />
                 </button>
             </div>
         </div>

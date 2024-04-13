@@ -8,6 +8,7 @@ import NumbersBlock from '../Blocks/Numbers/NumberBlock'
 import { useSearchParams } from 'react-router-dom'
 import CardList from '../Blocks/Text Slider/CardList'
 import CTABlock3 from '../Blocks/CTA3/CTABlock3'
+import PlainHero from '../Blocks/Plain Hero'
 
 
 const Home = () => {
@@ -36,7 +37,8 @@ const Home = () => {
                         switch (block.blockType) {
                             case "hero":
                                 return (
-                                    <Hero hero={block} />
+                                    <PlainHero/>
+                                    // <Hero hero={block} />
                                 )
                             case "content_left_media":
                             case "content_right_media":

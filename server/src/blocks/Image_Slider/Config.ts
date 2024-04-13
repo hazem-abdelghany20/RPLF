@@ -33,26 +33,7 @@ export const ImageSlider: Block = {
           type: 'row',
           fields: [
            
-            // {
-            //   name: 'type',
-            //   label: 'Image Actions',
-            //   type: 'radio',
-            //   defaultValue: 'page',
-            //   options: [
-            //     {
-            //       label: 'Page',
-            //       value: 'page',
-            //     },
-            //     {
-            //       label: 'Custom URL',
-            //       value: 'custom',
-            //     },
-            //   ],
-            //   admin: {
-            //     width: '50%',
-            //     layout: 'horizontal',
-            //   },
-            // },
+
             {
               name: 'type',
               label: 'Image Actions',

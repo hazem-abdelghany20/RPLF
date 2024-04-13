@@ -4,13 +4,8 @@ import payload from "payload";
 import fuzzy from "fuzzy";
 import levenshtein  from "fast-levenshtein";
 import corsOptions from "./corsOptions";
-<<<<<<< HEAD
-
-import cors from "cors";
-=======
->>>>>>> 52f179e33520e57b70a401fe341f459e14857d70
 import sendEmail from "./utils/mail";
-
+import cors from "cors"
 
 require("dotenv").config();
 const app = express();
@@ -31,10 +26,6 @@ app.get('/', (_, res) => {
 });
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 52f179e33520e57b70a401fe341f459e14857d70
 interface MainLinkData {
     slug: string;
     pages: string[];
@@ -125,8 +116,6 @@ app.post('/api/search', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch data from API' });
   }
 });
-
-
 
 
 

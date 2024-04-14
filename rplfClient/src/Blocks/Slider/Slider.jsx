@@ -6,15 +6,15 @@ import './css.css'
 
 const NextArrow = ({ onClick }) => {
     return (
-        <button onClick={onClick} className="absolute top-[20%] bg-[transparent] left-[85%] md:left-[80%] lg:left-[90%] z-10 overflow-hidden w-[150px] md:h-[150px] p-0">
-            <img src="right-arrow.svg" className='w-[200px] h-[200px] md:w-[150px] md:h-[150px]' alt="Arrow Right Icon" />
+        <button onClick={onClick} className="absolute top-[35%] md:top-[20%] bg-[transparent] left-[85%] md:left-[80%] lg:left-[90%] z-10 overflow-hidden w-[150px] md:h-[150px] p-0">
+            <img src="right-arrow.svg" className='w-[75px] h-[75px] md:w-[150px] md:h-[150px]' alt="Arrow Right Icon" />
         </button>
     )
 }
 
 const PrevArrow = ({ onClick }) => {
     return (
-        <button onClick={onClick} className="absolute top-[20%] bg-[transparent] left-[-30px] md:left-[-90px] z-10 lg:text-8xl font-thin p-0 ">
+        <button onClick={onClick} className="absolute top-[35%] md:top-[20%] bg-[transparent] left-[-30px] md:left-[-90px] z-10 lg:text-8xl font-thin p-0 ">
             <img src="left-arrow (1).svg" className='w-[75px] h-[75px] md:w-[150px] md:h-[150px]' alt="Arrow Right Icon" />
         </button>
     )
@@ -73,7 +73,7 @@ const ImageSlider = ({ images }) => {
             {
                 breakpoint: 2600,
                 settings: {
-                    slidesToShow: 6,
+                    slidesToShow: images.length > 6 ? 6 : images.length,
                     slidesToScroll: 1
                 }
             }
@@ -97,7 +97,7 @@ const ImageSlider = ({ images }) => {
     };
 
     return (
-        <div className="mx-auto mt-14 mb-20 w-full overflow-hidden pl-[50px]">
+        <div className="mx-auto mt-14 mb-20 w-full overflow-hidden md:pl-[50px]">
             <Slider {...settings}>
                 {
                     images.map((image, index) => (

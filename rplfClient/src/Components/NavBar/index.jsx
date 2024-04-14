@@ -105,7 +105,7 @@ const NavBar = ({ items, docs }) => {
                                         value={searchEntry}
                                         onChange={(e) => setSearchEntry(e.target.value)}
                                         className="bg-[#063948] font-bold p-0"
-                                        style={{  width: '100%', maxWidth: '400px' }}
+                                        style={{  width: '100%', maxWidth: '1000px' }}
                                         InputProps={{
                                             disableUnderline: true,
                                             style: { border: 'none', outline: 'none' , padding : 0 },

@@ -5,12 +5,15 @@ import fuzzy from "fuzzy";
 import levenshtein  from "fast-levenshtein";
 import corsOptions from "./corsOptions";
 import sendEmail from "./utils/mail";
-
-const cors = require("cors");
+import cors from "cors"
 
 require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 3000;
+
+app.use(cors({
+  origin: 'http://localhost:5173' 
+}));
 
 app.use(express.json());
 app.use(cors(corsOptions))
@@ -30,8 +33,12 @@ interface MainLinkData {
 
 let filteredMainLinks: { [key: string]: MainLinkData } = {};
 
-app.get('/api/search', async (req, res) => { 
-  const entry = req.body.entry.toLowerCase().replace(/&/g, 'and'); // Convert entry to lowercase for case-insensitive search and replace "&" with "and"
+app.post('/api/search', async (req, res) => { 
+  let entry = req.body.entry; // Convert entry to lowercase for case-insensitive search and replace "&" with "and"
+  console.log(entry)
+  if(entry || entry !==""){
+    entry = entry.toLowerCase().replace(/&/g, 'and');
+  }
   const navBarURL = `http://localhost:${port}/api/globals/nav-bar?locale=undefined&draft=false&depth=1`;
   const pagesURL = `http://localhost:${port}/api/pages`;
   
@@ -56,6 +63,7 @@ app.get('/api/search', async (req, res) => {
       mainLinks[linkSlug] = { slug: linkSlug, pages: [] };
     });
 
+    
     const pageNames = pagesData.docs.map(page => [page.title.toLowerCase(), page.slug, page.linked_to]);
 
     pageNames.forEach(page => {
@@ -80,12 +88,22 @@ app.get('/api/search', async (req, res) => {
       return mainLinkSlug && (mainLinks[mainLinkSlug]?.slug.includes(entry) || name.includes(entry));
     });
 
-    if (Object.keys(filteredMainLinks).length === 0 || filteredPageNames.length === 0) {
-      const options = { extract: el => el };
-      const mainLinksResults = fuzzy.filter(entry, Object.keys(mainLinks), options).map(el => el.original);
-      const pageNamesResults = fuzzy.filter(entry, pageNames.map(([name, _]) => name), options).map(el => el.original);
-      return res.status(200).json({ mainLinks: mainLinksResults, pageNames: pageNamesResults });
-    } 
+    if (Object.keys(filteredMainLinks).length === 0 && filteredPageNames.length === 0) {
+      const mainLinksResults = fuzzy.filter(entry, Object.keys(mainLinks), { extract: el => el }).map(el => el.original);
+      const pageNamesResults = fuzzy.filter(entry, pageNames.map(([name]) => name), { extract: el => el as string }).map(el => el.original as string);
+
+      // Structure the results back into the expected formats
+      mainLinksResults.forEach(link => {
+          if (mainLinks[link]) {
+              filteredMainLinks[link] = mainLinks[link];
+          }
+      });
+
+      let structuredPageNamesResults = pageNames.filter(([name]) => pageNamesResults.includes(name));
+
+      return res.status(200).json({ mainLinks: filteredMainLinks, pageNames: structuredPageNamesResults });
+    }
+
 
 
     filteredPageNames = filteredPageNames.filter(([name, slug]) => name.includes(entry));
@@ -98,8 +116,6 @@ app.get('/api/search', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch data from API' });
   }
 });
-
-
 
 
 

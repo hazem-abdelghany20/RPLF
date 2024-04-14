@@ -15,6 +15,7 @@ const NavButton = ({ id, title, pages, width, height, maxWidth }) => {
             const left = navButtonElement.getBoundingClientRect().left;
             setLeftPosition(left);
             if (width + (left + (0.1 * window.innerWidth)) > window.innerWidth) {
+                console.log("here")
                 setMoveLeft((20 / 4) * 50);
             }
         }

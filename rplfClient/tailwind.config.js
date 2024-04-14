@@ -17,7 +17,23 @@ export default {
       'xl' :'1280px',
       '2xl': '1600px'
     },
-    extend: {},
+    extend: {
+      keyframes:{
+        growFromLeft : {
+          '0%' : {width : '0px'},
+          '100%' : {width : '300px'}
+        },
+        shrinkFromLeft : {
+          '0%' : {width : '300px'},
+          '100%' : {width : '0px'}
+        }
+
+      },
+      animation : {
+        growFromLeft : 'growFromLeft 0.7s forwards ',
+        shrinkFromLeft : 'shrinkFromLeft 0.7s forwards'
+      }
+    },
   },
   plugins: [],
 }

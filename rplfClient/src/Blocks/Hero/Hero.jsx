@@ -14,7 +14,7 @@ const Hero = ({ hero }) => {
                 <div className="flex flex-row justify-center pt-32">
                     <div className="max-w-full mx-auto text-center">
                         <div className="flex flex-row justify-center">
-                            <img src={`http://localhost:3000/assets/${hero.logo.filename}`} alt="logo" width={100} height={100} className="max-w-full" />
+                            <img src={`http://localhost:3000/block-media/${hero.logo.filename}`} alt="logo" width={100} height={100} className="max-w-full" />
                         </div>
                         <div className="w-full md:w-[80vw] lg:w-[60vw] px-5 font-bold text-3xl md:text-5xl">{hero.headline}</div>
                     </div>

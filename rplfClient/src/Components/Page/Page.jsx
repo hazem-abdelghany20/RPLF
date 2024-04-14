@@ -8,6 +8,7 @@ import CardList from '../../Blocks/Text Slider/CardList'
 import CTABlock3 from '../../Blocks/CTA3/CTABlock3'
 import NumbersBlock from '../../Blocks/Numbers/NumberBlock'
 import PlainHero from '../../Blocks/Plain Hero'
+import ImageSlider from '../../Blocks/Slider/Slider'
 
 const Page = () => {
     const [data, setData] = useState(null)
@@ -60,6 +61,10 @@ const Page = () => {
                                 //console.log("cta")
                                 return (
                                     <CTABlock3 block={block} />
+                                )
+                            case "image_slider":
+                                return(
+                                    <ImageSlider images={block.images}/>
                                 )
                         }
                     })

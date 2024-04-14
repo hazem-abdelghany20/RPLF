@@ -1,8 +1,84 @@
 import React, { useState } from 'react';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import './css.css'
 
-const Slider = ({ images }) => {
+const NextArrow = ({ onClick }) => {
+    return (
+        <button onClick={onClick} className="absolute top-[20%] bg-[transparent] left-[85%] md:left-[80%] lg:left-[90%] z-10 overflow-hidden w-[150px] md:h-[150px] p-0">
+            <img src="right-arrow.svg" className='w-[200px] h-[200px] md:w-[150px] md:h-[150px]' alt="Arrow Right Icon" />
+        </button>
+    )
+}
+
+const PrevArrow = ({ onClick }) => {
+    return (
+        <button onClick={onClick} className="absolute top-[20%] bg-[transparent] left-[-30px] md:left-[-90px] z-10 lg:text-8xl font-thin p-0 ">
+            <img src="left-arrow (1).svg" className='w-[75px] h-[75px] md:w-[150px] md:h-[150px]' alt="Arrow Right Icon" />
+        </button>
+    )
+}
+
+
+const ImageSlider = ({ images }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const cardsPerPage = 5;
+
+    var settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        nextArrow:
+            <NextArrow />
+        ,
+        prevArrow:
+            <PrevArrow />
+        ,
+        responsive: [
+            {
+                breakpoint: 640,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                }
+            },
+            {
+                breakpoint: 800,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                }
+            },
+            {
+                breakpoint: 1300,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 1600,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 2600,
+                settings: {
+                    slidesToShow: 6,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    };
 
     const handleNext = () => {
         const newIndex = currentIndex + 1
@@ -21,29 +97,23 @@ const Slider = ({ images }) => {
     };
 
     return (
-        <div className="flex items-center pt-16 pb-16 pl-[20px]">
-            <button className="absolute bg-[transparent] left-[-30px] top-50 z-10 lg:left-[-150px] lg:text-8xl  font-thin " onClick={handlePrev}>
-                <img src="left-arrow.png" className='w-[75px] h-[75px] md:w-[150px] md:h-[150px]'  alt="Arrow Right Icon" />
-            </button>
-
-            <div className="flex gap-10 justify-content transition-transform duration-500 ease-in-out md:ml-11 xs:w-full overflow-hidden lg:ml-16">
-                {[...images, ...images, ...images].slice(currentIndex, currentIndex + cardsPerPage).map((image, index) => (
-                    <div key={index} className='border-8 border-solid h-[240px] border-[#43351e] w-full'>
-                        <div className="flex flex-col gap-0 h-308 xs:w-full">
-                            <div className={"text-left h-[200px] w-80"}>
-                                <img src="call.png" className="w-[89%] xsm:w-full h-[225px] lg:w-80 lg:h-56 " alt="Slider Image" />
+        <div className="mx-auto mt-14 mb-20 w-full overflow-hidden pl-[50px]">
+            <Slider {...settings}>
+                {
+                    images.map((image, index) => (
+                        <div key={index} className='border-8 border-solid h-[240px] border-[#43351e] test'>
+                            <div className="flex flex-col gap-0 h-308">
+                                <div className={"text-left h-[200px]"}>
+                                    <img src={`http://localhost:3000/block-media/${image.image.filename}`} className="w-[200px] h-[225px] lg:w-80 lg:h-56 " alt="Slider Image" />
+                                </div>
                             </div>
+
                         </div>
-
-                    </div>
-                ))}
-            </div>
-
-            <button className="absolute bg-[transparent] left-[85%] md:left-[80%] lg:left-[88%] md:mr-4 z-10 overflow-hidden p-0 " onClick={handleNext}>
-                <img src="right-arrow.png" className='w-[75px] h-[75px] md:w-[150px] md:h-[150px]' alt="Arrow Right Icon" />
-            </button>
+                    ))
+                }
+            </Slider>
         </div>
     );
 };
 
-export default Slider;
+export default ImageSlider;

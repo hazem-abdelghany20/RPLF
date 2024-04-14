@@ -9,6 +9,8 @@ import { useSearchParams } from 'react-router-dom'
 import CardList from '../Blocks/Text Slider/CardList'
 import CTABlock3 from '../Blocks/CTA3/CTABlock3'
 import PlainHero from '../Blocks/Plain Hero'
+import Slider from 'react-slick'
+import ImageSlider from '../Blocks/Slider/Slider'
 
 
 const Home = () => {
@@ -62,6 +64,10 @@ const Home = () => {
                                 //console.log("cta")
                                 return(
                                     <CTABlock3 block={block}/>
+                                )
+                            case "image_slider" :
+                                return(
+                                    <ImageSlider images={block.images}/>
                                 )
                         }
                     })

@@ -1,29 +1,86 @@
-import React, { useState } from 'react';
-import Card from './Card';
+import { useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Card from "./Card";
+
+const NextArrow = ({ onClick }) => {
+    return (
+        <button onClick={onClick} className="absolute top-[20%] bg-[transparent] left-[85%] md:left-[80%] lg:left-[90%] z-10 overflow-hidden w-[150px] md:h-[150px] p-0">
+            <img src="right-arrow.svg" className='w-[200px] h-[200px] md:w-[150px] md:h-[150px]' alt="Arrow Right Icon" />
+        </button>
+    )
+}
+
+const PrevArrow = ({ onClick }) => {
+    return (
+        <button onClick={onClick} className="absolute top-[20%] bg-[transparent] left-[-30px] md:left-[-90px] z-10 lg:text-8xl font-thin p-0 ">
+            <img src="left-arrow (1).svg" className='w-[75px] h-[75px] md:w-[150px] md:h-[150px]' alt="Arrow Right Icon" />
+        </button>
+    )
+}
+
 
 const CardList = ({ block }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    var cardsPerPage = 5;
 
+    var settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        nextArrow:
+            <NextArrow />
+        ,
+        prevArrow:
+            <PrevArrow />
+        ,
+        responsive: [
+            {
+                breakpoint: 640,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                }
+            },
+            {
+                breakpoint: 800,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                }
+            },
+            {
+                breakpoint: 1300,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 1600,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 2600,
+                settings: {
+                    slidesToShow: 6,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    };
     var cards = block.content_array;
-    cards = [
-        {
-            title: "Firm News 1",
-            content: "Another Year - Still 'Most Feared 1",
-        },
-        {
-            title: "Firm News 2",
-            content: "Another Year - Still 'Most Feared' 2",
-        },
-        {
-            title: "Firm News 3",
-            content: "Another Year - Still 'Most Feared' 3",
-        },
-        {
-            title: "Firm News 4",
-            content: "Another Year - Still 'Most Feared' 4",
-        },
-    ];
+    
+    var cardsPerPage = cards.length + 1;
     const handleNext = () => {
         const newIndex = currentIndex + 1
         if (newIndex < cards.length + 1) {
@@ -49,20 +106,14 @@ const CardList = ({ block }) => {
                 </div>
             </div>
 
-            <div className="flex items-center pt-16 pb-16 pl-[20px]">
-                <button className="absolute bg-[transparent] left-[-30px] top-50 z-10 lg:left-[-150px] lg:text-8xl  font-thin " onClick={handlePrev}>
-                    <img src="left-arrow.png" className='w-[75px] h-[75px] md:w-[150px] md:h-[150px]' alt="Arrow Right Icon" />
-                </button>
-                <div className="flex gap-10 justify-content transition-transform duration-500 ease-in-out ml-2 md:ml-11 xs:w-full overflow-hidden lg:ml-[-300px]" >
-                    {[cards[0], ...cards, ...cards].slice(currentIndex, currentIndex + cardsPerPage).map((card, index) => (
-                        <div key={index} className="w-full">
+            <div className="mx-auto mt-14 mb-20 w-full overflow-hidden pl-[50px]">
+                <Slider {...settings}>
+                    {
+                        cards.map((card, index) => (
                             <Card text={card.content} />
-                        </div>
-                    ))}
-                </div>
-                <button className="absolute bg-[transparent] left-[85%] md:left-[80%] lg:left-[93%] md:mr-4 z-10 overflow-hidden p-0 " onClick={handleNext}>
-                    <img src="right-arrow.png" className='w-[75px] h-[75px] md:w-[150px] md:h-[150px]' alt="Arrow Right Icon" />
-                </button>
+                        ))
+                    }
+                </Slider>
             </div>
         </div>
     );

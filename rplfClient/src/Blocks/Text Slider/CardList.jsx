@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Card from "./Card";
+import { Link } from "react-router-dom";
 
 const NextArrow = ({ onClick }) => {
     return (
@@ -14,7 +16,7 @@ const NextArrow = ({ onClick }) => {
 
 const PrevArrow = ({ onClick }) => {
     return (
-        <button onClick={onClick} className="absolute top-[35%] md:top-[20%] bg-[transparent] left-[-30px] md:left-[-90px] z-10 lg:text-8xl font-thin p-0 ">
+        <button onClick={onClick} className="absolute top-[35%] md:top-[20%] bg-[transparent] left-[-30px] xsm:left-[-55px] md:left-[-90px] z-10 lg:text-8xl font-thin p-0 ">
             <img src="left-arrow (1).svg" className='w-[75px] h-[75px] md:w-[150px] md:h-[150px]' alt="Arrow Right Icon" />
         </button>
     )
@@ -24,6 +26,8 @@ const PrevArrow = ({ onClick }) => {
 const CardList = ({ block }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     var cards = block.content_array;
+    const navigate = useNavigate()
+
     var settings = {
         dots: false,
         infinite: true,
@@ -78,8 +82,8 @@ const CardList = ({ block }) => {
             }
         ]
     };
-    
-    
+
+
     var cardsPerPage = cards.length + 1;
     const handleNext = () => {
         const newIndex = currentIndex + 1
@@ -97,6 +101,25 @@ const CardList = ({ block }) => {
         setCurrentIndex(prevIndex => (prevIndex - 1 + cards.length) % cards.length);
     };
 
+    const goTo = (type, page, url, newTab) => {
+        console.log(type)
+        console.log(page)
+        if (type === "page") {
+            if (page.slug.toLowerCase() === "home") {
+                navigate(`/`);
+            } else {
+                navigate(`/${page.slug}`);
+            }
+        } else {
+            if (newTab) {
+                window.open(url, '_blank');
+            }
+            else {
+                window.location.href = url;
+            }
+        }
+    };
+
     return (
         <div>
             <div>
@@ -106,12 +129,34 @@ const CardList = ({ block }) => {
                 </div>
             </div>
 
-            <div className="mx-auto mt-14 mb-20 w-full overflow-hidden md:pl-[50px]">
+            <div className="mx-auto mt-14 mb-20 w-full pl-[20px] xsm:pl-[30px] sm:pl-[55px] md:pl-[50px] overflow-hidden lg:pl-[50px]">
                 <Slider {...settings}>
                     {
-                        cards.map((card, index) => (
-                            <Card text={card.content} />
-                        ))
+                        cards.map((card, index) => {
+                            if (card.type == 'page') {
+                                return (
+                                    <div onClick={() => goTo(card.page)}>
+                                        <Card text={card.content} />
+                                    </div>
+                                )
+                            } else {
+                                if (card.newTab) {
+                                    let url = card.url.startsWith("http://") || card.url.startsWith("https://") ? card.url : `https://${card.url}`;
+                                    return (
+                                        <a href={url} target="_blank" className="cursor-pointer text-[white]">
+                                            <Card text={card.content} />
+                                        </a>
+                                    )
+                                } else {
+                                    let url = card.url.startsWith("http://") || card.url.startsWith("https://") ? card.url : `https://${card.url}`;
+                                    return (
+                                        <a href={url} className="cursor-pointer text-[white]">
+                                            <Card text={card.content} />
+                                        </a>
+                                    )
+                                }
+                            }
+                        })
                     }
                 </Slider>
             </div>

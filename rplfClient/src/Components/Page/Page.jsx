@@ -16,7 +16,7 @@ const Page = () => {
     const callApi = async () => {
         await axios.get('http://localhost:3000/api/pages').then(response => {
             //console.log(response.data.docs)
-            setData(response.data.docs.filter(one => one.title == title)[0])
+            setData(response.data.docs.filter(one => one.slug == title)[0])
             //console.log(response.data.docs.filter(one => one.title == title))
             setDocs(response.data.docs)
         })

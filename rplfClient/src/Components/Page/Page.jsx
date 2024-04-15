@@ -7,6 +7,8 @@ import Hero from '../../Blocks/Hero/Hero'
 import CardList from '../../Blocks/Text Slider/CardList'
 import CTABlock3 from '../../Blocks/CTA3/CTABlock3'
 import NumbersBlock from '../../Blocks/Numbers/NumberBlock'
+import PlainHero from '../../Blocks/Plain Hero'
+import ImageSlider from '../../Blocks/Slider/Slider'
 
 const Page = () => {
     const [data, setData] = useState(null)
@@ -16,14 +18,14 @@ const Page = () => {
     const callApi = async () => {
         await axios.get('http://localhost:3000/api/pages').then(response => {
             //console.log(response.data.docs)
-            setData(response.data.docs.filter(one => one.title == title)[0])
+            setData(response.data.docs.filter(one => one.slug == title)[0])
             //console.log(response.data.docs.filter(one => one.title == title))
             setDocs(response.data.docs)
         })
     }
     useEffect(() => {
         callApi()
-    }, [])
+    }, [title])
     if (data != null && docs != null) {
         return (
             <div>
@@ -35,6 +37,10 @@ const Page = () => {
                             case "hero":
                                 return (
                                     <Hero hero={block} />
+                                )
+                            case "background_with_title":
+                                return(
+                                    <PlainHero block={block}/>
                                 )
                             case "content_left_media":
                             case "content_right_media":
@@ -55,6 +61,10 @@ const Page = () => {
                                 //console.log("cta")
                                 return (
                                     <CTABlock3 block={block} />
+                                )
+                            case "image_slider":
+                                return(
+                                    <ImageSlider images={block.images}/>
                                 )
                         }
                     })

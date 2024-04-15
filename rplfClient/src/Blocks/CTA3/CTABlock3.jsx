@@ -5,10 +5,10 @@ const CTABlock3 = ({ block }) => {
 
     const goTo = (type, page, url, newTab) => {
         if (type === "page") {
-            if (page.title === "Home") {
+            if (page.slug.toLowerCase() === "home") {
                 navigate(`/`);
             } else {
-                navigate(`/${page.title}`);
+                navigate(`/${page.slug}`);
             }
         }
     };
@@ -21,15 +21,53 @@ const CTABlock3 = ({ block }) => {
             </div>
             <div className="flex justify-center mt-7">
                 <div className="flex flex-col md:flex-row justify-center gap-5">
-                    {block.buttons.map((button, index) => (
+                    {block.buttons.map((button) => {
+                        if (button.type == 'page') {
+                            return (
+                                <button
+                                    key={button.label} // Added for React keys
+                                    className="px-4 py-2 rounded-none text-white text-semibold bg-[#B48034] border-2 border-[#B48034] hover:bg-transparent transition-colors"
+                                    onClick={() => goTo(button.type, button.page, button.url, button.newTab)}
+                                >
+                                    {button.label}
+                                </button>
+                            )
+                        } else {
+                            if (button.newTab) {
+                                let url = button.url.startsWith("http://") || button.url.startsWith("https://") ? button.url : `https://${button.url}`;
+                                return (
+
+                                    <a href={url} target="_blank" className="cursor-pointer text-[white]">
+                                        <button
+                                            key={button.label} // Added for React keys
+                                            className="px-4 py-2 rounded-none text-white text-semibold bg-[#B48034] border-2 border-[#B48034] hover:bg-transparent transition-colors"
+                                        >
+                                            {button.label}
+                                        </button>
+                                    </a>
+                                )
+                            } else {
+                                let url = button.url.startsWith("http://") || button.url.startsWith("https://") ? button.url : `https://${button.url}`;
+                                return (
+                                    <a href={url} className="cursor-pointer text-[white]">
+                                        <button
+                                            key={button.label} // Added for React keys
+                                            className="px-4 py-2 rounded-none text-white text-semibold bg-[#B48034] border-2 border-[#B48034] hover:bg-transparent transition-colors"
+                                        >
+                                            {button.label}
+                                        </button>
+                                    </a>
+                                )
+                            }
+                        }
                         <button
-                            key={index}
-                            className="rounded-none bg-[#d59a45] text-white py-2 px-4 hover:bg-[#bf8836] transition-colors"
+                            key={button.label} // Added for React keys
+                            className="px-4 py-2 rounded-none text-white text-semibold bg-[#B48034] border-2 border-[#B48034] hover:bg-transparent transition-colors"
                             onClick={() => goTo(button.type, button.page, button.url, button.newTab)}
                         >
                             {button.label}
                         </button>
-                    ))}
+                    })}
                 </div>
             </div>
         </div>

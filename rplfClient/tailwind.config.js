@@ -10,14 +10,33 @@ export default {
   theme: {
     screens:{
       'xs': {'max': '800px'},
-      'sm' : '640px',
+      'xsm': '350px',
+      'sm' : '400px',
       'md' :'768px',
       'lg' : '1024px',
       'xl' :'1280px',
-      '2xl': '1536px'
+      '2xl': '1600px'
     },
-    extend: {},
+    extend: {
+      keyframes:{
+        growFromLeft : {
+          '0%' : {width : '0px'},
+          '100%' : {width : '300px'}
+        },
+        shrinkFromLeft : {
+          '0%' : {width : '300px'},
+          '100%' : {width : '0px'}
+        },
+        fontFamily: {
+          'heading': ['Lora', 'serif'], // for headings h1 to h6
+          'body': ['Roboto Slab', 'serif'], // for other elements
+        },
+      },
+      animation : {
+        growFromLeft : 'growFromLeft 0.7s forwards ',
+        shrinkFromLeft : 'shrinkFromLeft 0.7s forwards'
+      }
+    },
   },
   plugins: [],
 }
-

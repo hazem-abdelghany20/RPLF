@@ -1,8 +1,9 @@
 import { useEffect, useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const NavButton = ({ id, title, pages, width, height, maxWidth }) => {
     const [hover, setHover] = useState(false);
+    const navigate = useNavigate()
     const [leftPosition, setLeftPosition] = useState(0);
     const [moveLeft, setMoveLeft] = useState(0);
 
@@ -15,6 +16,7 @@ const NavButton = ({ id, title, pages, width, height, maxWidth }) => {
             const left = navButtonElement.getBoundingClientRect().left;
             setLeftPosition(left);
             if (width + (left + (0.1 * window.innerWidth)) > window.innerWidth) {
+                console.log("here")
                 setMoveLeft((20 / 4) * 50);
             }
         }
@@ -46,7 +48,7 @@ const NavButton = ({ id, title, pages, width, height, maxWidth }) => {
                 >
                     {pages.map((page, index) => (
                         <li key={index} className="list-none text-white hover:text-[#e1a54f]">
-                            <Link to={`/${page.title}`} className="px-3 text-white no-underline hover:text-[#e1a54f]">{page.title}</Link>
+                            <Link to={`/${page.slug}`} onClick={() => navigate(`/${page.slug}`)} className="px-3 text-white no-underline hover:text-[#e1a54f]">{page.title}</Link>
                         <hr className="my-1"/>
                         </li>
                     ))}

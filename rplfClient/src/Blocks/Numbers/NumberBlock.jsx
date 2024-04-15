@@ -13,7 +13,7 @@ const NumbersBlock = ({ block }) => {
             <div className="flex flex-row justify-center">
                 <div className="flex flex-col lg:flex-row xs:flex-col justify-center gap-[100px] mt-[50px] pb-[50px]">
                     {/* Left Block */}
-                    <div className="flex flex-col w-[250px] lg:w-[300px] lg:ml-[20px] h-[250px] pt-[25px] ml-[20px]" >
+                    <div className="flex flex-col w-[250px] lg:w-[250px] lg:m-[0px] xl:w-[300px] xl:ml-[20px] h-[250px] pt-[25px] ml-[20px]" >
                         <div className="bg-[#dee5f6] flex flex-row justify-center align-center h-[40%] text-[black] font-bold text-[55px]">
                             <p>{block.number1}</p>
                         </div>
@@ -40,7 +40,7 @@ const NumbersBlock = ({ block }) => {
 
                     </div>
                     {/* Right Block */}
-                    <div className="flex flex-col w-[250px] lg:w-[300px] lg:ml-[20px] h-[250px] pt-[25px] ml-[20px]" >
+                    <div className="flex flex-col w-[250px] lg:w-[250px] lg:ml-[10px] xl:w-[300px] xl:ml-[20px] h-[250px] pt-[25px] ml-[20px]" >
                         <div className="bg-[#dee5f6] flex flex-row justify-center align-center h-[40%] text-[black] font-bold text-[55px]">
                             <p>{block.number3}</p>
                         </div>

@@ -50,3 +50,7 @@
     border-color: #43351e;
     height: 250px;
 }
+
+.test{
+    width: auto !important;
+}

@@ -10,7 +10,7 @@ const ContentBlock = ({ content }) => {
                         <p className="text-left">{content.paragraph}</p>
                     </div>
                     {/*  */}
-                    <img className="size-9/12 md:size-5/12 pr-24" src={`http://localhost:3000/block-media/${content.media.filename}`} alt="Content Image"></img>
+                    <img className="size-[45%]" src={`http://localhost:3000/block-media/${content.media.filename}`} alt="Content Image"></img>
                 </div>
             )
         case "content_left_media":
@@ -20,7 +20,7 @@ const ContentBlock = ({ content }) => {
                         <b><h2 className='text-xl md:text-4xl text-left'>{content.headline}</h2></b>
                         <p className="text-left text-wrap overflow-wrap">{content.paragraph}</p>
                     </div>
-                    <img className="size-9/12 md:size-5/12 pl-24" src={`http://localhost:3000/block-media/${content.media.filename}`} alt="Content Image"></img>
+                    <img className="size-[45%]" src={`http://localhost:3000/block-media/${content.media.filename}`} alt="Content Image"></img>
                 </div>
 
             )
@@ -40,7 +40,7 @@ const ContentBlock = ({ content }) => {
                         <b><h2 className='text-4xl'>{content.headline}</h2></b>
                         <p className="text-left">{content.paragraph}</p>
                     </div>
-                    <img className="xs:w-[200px] xs:h-[290px] md:w-500 md:h-400" src="pharoah.png" alt="Content Image"></img>
+                    <img className="xs:w-[200px] xs:h-[290px] md:w-500 md:h-400" src={`http://localhost:3000/block-media/${content.media.filename}`}alt="Content Image"></img>
                 </div>
             )
         case "content_above_media":
@@ -50,7 +50,7 @@ const ContentBlock = ({ content }) => {
                         <b><h2 className='text-4xl'>{content.headline}</h2></b>
                         <p className="text-left">{content.paragraph}</p>
                     </div>
-                    <img className="xs:w-[200px] xs:h-[290px] md:w-500 md:h-400 mt-20" src="pharoah.png" alt="Content Image"></img>
+                    <img className="xs:w-[200px] xs:h-[290px] md:w-500 md:h-400 mt-20" src={`http://localhost:3000/block-media/${content.media.filename}`} alt="Content Image"></img>
                 </div>
 
             )

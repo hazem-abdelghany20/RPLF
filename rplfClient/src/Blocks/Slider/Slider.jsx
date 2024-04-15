@@ -1,30 +1,119 @@
 import React, { useState } from 'react';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import './css.css'
 
-const Slider = ({ images }) => {
+const NextArrow = ({ onClick }) => {
+    return (
+        <button onClick={onClick} className="absolute top-[35%] md:top-[20%] bg-[transparent] left-[85%] md:left-[80%] lg:left-[95%] z-0 overflow-hidden w-[150px] md:h-[150px] p-0">
+            <img src="right-arrow.svg" className='w-[65px] h-[65px] md:w-[150px] md:h-[150px]' alt="Arrow Right Icon" />
+        </button>
+    )
+}
+
+const PrevArrow = ({ onClick }) => {
+    return (
+        <button onClick={onClick} className="absolute top-[35%] md:top-[20%] bg-[transparent] left-[-30px] md:left-[-90px] z-0 lg:text-8xl font-thin p-0 ">
+            <img src="left-arrow (1).svg" className='w-[75px] h-[75px] md:w-[150px] md:h-[150px]' alt="Arrow Right Icon" />
+        </button>
+    )
+}
+
+
+const ImageSlider = ({ images }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const cardsPerPage = 3;
+    const cardsPerPage = 5;
+
+    var settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        nextArrow:
+            <NextArrow />
+        ,
+        prevArrow:
+            <PrevArrow />
+        ,
+        responsive: [
+            {
+                breakpoint: 640,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                }
+            },
+            {
+                breakpoint: 800,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                }
+            },
+            {
+                breakpoint: 1300,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 1600,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 2600,
+                settings: {
+                    slidesToShow: images.length > 6 ? 6 : images.length,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    };
 
     const handleNext = () => {
-        setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
+        const newIndex = currentIndex + 1
+        if (newIndex < cards.length + 1) {
+            console.log("here " + newIndex)
+            setCurrentIndex(newIndex)
+        } else {
+            console.log("here2 " + newIndex)
+            setCurrentIndex(0)
+        }
+        //setCurrentIndex(prevIndex => (prevIndex + 1) % cards.length);
     };
 
     const handlePrev = () => {
-        setCurrentIndex(prevIndex => (prevIndex - 1 + images.length) % images.length);
+        setCurrentIndex(prevIndex => (prevIndex - 1 + cards.length) % cards.length);
     };
 
     return (
-        <div className="flex justify-center items-center">
-            <button className="absolute top-50 z-10" onClick={handlePrev}>❮</button>
-            <div className="flex gap-10 transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100 / cardsPerPage}%)` }}>
-                {[...images, ...images, ...images].slice(currentIndex, currentIndex + cardsPerPage).map((image, index) => (
-                    <div key={index} className='frame'>
-                        <img src="call.png" className="w-64 h-48" alt="Slider Image" />
-                    </div>
-                ))}
-            </div>
-            <button className="absolute left-[93%] xs:left-[93%] mr-14 z-10" onClick={handleNext}>❯</button>
+        <div className="mx-auto mt-14 mb-20 w-[full] overflow-hidden md:pl-[35px] md:pr-[35px]">
+            <Slider {...settings}>
+                {
+                    images.map((image, index) => (
+                        <div key={index} className='border-8 border-solid h-[240px] border-[#43351e] test'>
+                            <div className="flex flex-col gap-0 h-308">
+                                <div className={"text-left h-[200px]"}>
+                                    <img src={`http://localhost:3000/block-media/${image.image.filename}`} className="w-[200px] h-[225px] lg:w-80 lg:h-56 " alt="Slider Image" />
+                                </div>
+                            </div>
+
+                        </div>
+                    ))
+                }
+            </Slider>
         </div>
     );
 };
 
-export default Slider;
+export default ImageSlider;

@@ -5,9 +5,10 @@ import Header from '../Components/Header'
 import Hero from '../Blocks/Hero/Hero'
 import ContentBlock from '../Blocks/Content/ContentBlock'
 import NumbersBlock from '../Blocks/Numbers/NumberBlock'
-import { useSearchParams } from 'react-router-dom'
 import CardList from '../Blocks/Text Slider/CardList'
 import CTABlock3 from '../Blocks/CTA3/CTABlock3'
+import PlainHero from '../Blocks/Plain Hero'
+import ImageSlider from '../Blocks/Slider/Slider'
 
 
 const Home = () => {
@@ -19,7 +20,7 @@ const Home = () => {
     const getInfo = async () => {
         await axios.get('http://localhost:3000/api/pages').then(response => {
             const data = response.data.docs.filter(page => page.title.toLowerCase() == "home")
-            //console.log(response.data.docs.filter(page => page.title.toLowerCase() == "home"))
+            console.log(response.data.docs.filter(page => page.title.toLowerCase() == "about us"))
             setData(data[0])
             setDocs(response.data.docs)
         })
@@ -37,6 +38,10 @@ const Home = () => {
                             case "hero":
                                 return (
                                     <Hero hero={block} />
+                                )
+                            case "background_with_title":
+                                return(
+                                    <PlainHero block={block}/>
                                 )
                             case "content_left_media":
                             case "content_right_media":
@@ -57,6 +62,10 @@ const Home = () => {
                                 //console.log("cta")
                                 return(
                                     <CTABlock3 block={block}/>
+                                )
+                            case "image_slider" :
+                                return(
+                                    <ImageSlider images={block.images}/>
                                 )
                         }
                     })

@@ -16,7 +16,7 @@ const NextArrow = ({ onClick }) => {
 
 const PrevArrow = ({ onClick }) => {
     return (
-        <button onClick={onClick} className="absolute top-[35%] md:top-[20%] bg-[transparent] left-[-30px] xsm:left-[-55px] md:left-[-90px] z-10 lg:text-8xl font-thin p-0 ">
+        <button onClick={onClick} className="absolute top-[35%] md:top-[20%] bg-[transparent] left-[-30px] xsm:left-[-55px] md:left-[-110px] z-10 lg:text-8xl font-thin p-0 ">
             <img src="left-arrow (1).svg" className='w-[75px] h-[75px] md:w-[150px] md:h-[150px]' alt="Arrow Right Icon" />
         </button>
     )
@@ -129,7 +129,7 @@ const CardList = ({ block }) => {
                 </div>
             </div>
 
-            <div className="mx-auto mt-14 mb-20 w-full pl-[20px] xsm:pl-[30px] sm:pl-[55px] md:pl-[50px] overflow-hidden lg:pl-[50px]">
+            <div className="mx-auto mt-14 mb-20 w-full pl-[20px] xsm:pl-[30px] sm:pl-[55px] md:pl-[50px] overflow-hidden md:pl-[60px]">
                 <Slider {...settings}>
                     {
                         cards.map((card, index) => {

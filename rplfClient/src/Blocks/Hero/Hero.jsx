@@ -4,7 +4,7 @@ import ImageSlider from "../Slider/Slider";
 import Slider from "../Slider/Slider";
 
 const Hero = ({ hero }) => {
-    console.log(hero.logo.filename)
+    console.log(hero)
     return (
         <div className="h-full">
             <div

@@ -5,11 +5,9 @@ import Header from '../Components/Header'
 import Hero from '../Blocks/Hero/Hero'
 import ContentBlock from '../Blocks/Content/ContentBlock'
 import NumbersBlock from '../Blocks/Numbers/NumberBlock'
-import { useSearchParams } from 'react-router-dom'
 import CardList from '../Blocks/Text Slider/CardList'
 import CTABlock3 from '../Blocks/CTA3/CTABlock3'
 import PlainHero from '../Blocks/Plain Hero'
-import Slider from 'react-slick'
 import ImageSlider from '../Blocks/Slider/Slider'
 
 

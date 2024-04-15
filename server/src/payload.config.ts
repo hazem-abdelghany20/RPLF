@@ -8,12 +8,14 @@ import { buildConfig } from 'payload/config'
 
 import Admins from './collections/Admins'
 import FooterLogo  from './collections/FooterLogo'
-import Logo from './collections/Logo'
 import BackgroundImages from './collections/BackgroundImages'
 import Blocks from './collections/Blocks'
 import Pages from './collections/Pages'
 import BlockMedia from './collections/BlockMedia'
 import Media from './collections/Media'
+import {Logo} from './graphics/Logo';
+import {Icon} from './graphics/Icon';
+
 
 import NavBar from './globals/NavBar'
 import Footer from './globals/Footer'
@@ -27,10 +29,12 @@ export default buildConfig({
       favicon: '/assets/logo.jpg',
       ogImage: '/assets/logo.jpg',
     },
-    // components: {
-    //   graphics: {
-    //   },
-    // },
+    components: {
+      graphics: {
+        Logo,
+        Icon
+      },
+    },
   },
   editor: slateEditor({}),
   collections: [

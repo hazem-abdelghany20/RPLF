@@ -3,20 +3,20 @@
 @tailwind utilities;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* Roboto Slab will be the default font for the body, which affects most elements */
+  font-family: 'Roboto Slab', Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Specific font-weight and font-family for anchor tags */
 a {
   font-weight: 500;
   color: #646cff;
@@ -30,9 +30,16 @@ body {
   min-width: 320px;
 }
 
+/* Applying Lora specifically to all heading elements */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lora', serif;
+  line-height: 1.1;
+}
+
+/* Example customization for H1 to make it stand out */
 h1 {
   font-size: 3.2em;
-  line-height: 1.1;
+  font-weight: 700; /* Making H1 bolder */
 }
 
 button {
@@ -41,7 +48,7 @@ button {
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
-  font-family: inherit;
+  font-family: inherit; /* This will inherit Roboto Slab as set in the root */
   background-color: #1a1a1a;
   cursor: pointer;
 }

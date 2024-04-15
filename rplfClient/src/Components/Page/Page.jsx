@@ -25,7 +25,7 @@ const Page = () => {
     }
     useEffect(() => {
         callApi()
-    }, [])
+    }, [title])
     if (data != null && docs != null) {
         return (
             <div>

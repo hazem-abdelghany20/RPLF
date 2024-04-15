@@ -26,8 +26,11 @@ export default {
         shrinkFromLeft : {
           '0%' : {width : '300px'},
           '100%' : {width : '0px'}
-        }
-
+        },
+        fontFamily: {
+          'heading': ['Lora', 'serif'], // for headings h1 to h6
+          'body': ['Roboto Slab', 'serif'], // for other elements
+        },
       },
       animation : {
         growFromLeft : 'growFromLeft 0.7s forwards ',

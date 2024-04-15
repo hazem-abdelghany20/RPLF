@@ -50,15 +50,6 @@ export const Page: CollectionConfig = {
         isClearable: true,
       },
       options: [
-        // 1. ABOUT US
-        // 2. PRACTICE AREAS
-        // 3. PEOPLE
-        // 4. PARTNERS IN SUCCESS
-        // 5. IMMIGRATION
-        // 6. LEGAL TRANSLATION
-        // 7. CAREERS
-        // 8. LAWS & NEWS
-        // 9. CONTACT US
         {
           label: 'Home',
           value: 'home',

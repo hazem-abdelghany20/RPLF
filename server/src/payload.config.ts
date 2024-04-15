@@ -14,6 +14,7 @@ import Blocks from './collections/Blocks'
 import Pages from './collections/Pages'
 import BlockMedia from './collections/BlockMedia'
 import Media from './collections/Media'
+import Consultations from './collections/Consultations'
 
 import NavBar from './globals/NavBar'
 import Footer from './globals/Footer'
@@ -27,10 +28,6 @@ export default buildConfig({
       favicon: '/assets/logo.jpg',
       ogImage: '/assets/logo.jpg',
     },
-    // components: {
-    //   graphics: {
-    //   },
-    // },
   },
   editor: slateEditor({}),
   collections: [
@@ -42,6 +39,7 @@ export default buildConfig({
     Pages,
     BlockMedia,
     Media,
+    Consultations
   ],
   globals:[
     NavBar,

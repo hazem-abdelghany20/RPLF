@@ -1,9 +1,8 @@
 import { CollectionConfig } from 'payload/types';
 import { phoneValidator } from '../utils/validators';
 
-
-const Admins: CollectionConfig = {
-  slug: "admins",
+const Consultations: CollectionConfig = {
+  slug: "consultations",
   auth: true,
   access: {
     create: ()=>true,
@@ -16,22 +15,29 @@ const Admins: CollectionConfig = {
       name: 'full_name',
       label: 'Full Name',
       type: 'text',
+      required: true
     },
     {
-      name: 'super_admin',
-      label: 'Super Admin',
-      type: 'checkbox',
-      defaultValue: true,
+      name: 'email',
+      label: 'Email',
+      type: 'email',
+      required: true
     },
     {
       name: 'phone',
       label: 'Phone Number',
       type: 'text',
-      saveToJWT: false,
-      required: false,
+      required: true,
       validate: phoneValidator(true)
+    },
+    {
+      name: 'description',
+      label: 'Description',
+      type: 'text',
+      required: true,
+
     },
   ],
 };
 
-export default Admins;
+export default Consultations;

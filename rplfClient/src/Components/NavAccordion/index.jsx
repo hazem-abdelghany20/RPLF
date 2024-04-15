@@ -18,7 +18,7 @@ const AccordionItem = ({ title, pages }) => { // Removed `key` from here
           <ul>
             {pages.map((page, index) => (
               <li key={index} className="list-none rounded-none text-left">
-                <Link to={`/${page.title}`} className="font-medium text-white hover:text-[#e1a54f] no-underline bg-[#0b2c35] rounded-none">{page.title}</Link>
+                <Link to={`/${page.slug}`} className="font-medium text-white hover:text-[#e1a54f] no-underline bg-[#0b2c35] rounded-none">{page.title}</Link>
               </li>
             ))}
           </ul>

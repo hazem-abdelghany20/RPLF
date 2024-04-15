@@ -128,7 +128,7 @@ const NavBar = ({ items, docs }) => {
 
                     </div>
                 </div>
-                <div className="absolute">
+                <div className="absolute" onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
                     {showResults && (
                         <div ref={resultsRef}>
                             {hasContentToShow ? (

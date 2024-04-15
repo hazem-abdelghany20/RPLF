@@ -5,10 +5,10 @@ const CTA = ({ block }) => {
 
     const goTo = (type, page, url, newTab) => {
         if (type === "page") {
-            if (page.title === "Home") {
+            if (page.slug.toLowerCase() === "home") {
                 navigate(`/`);
             } else {
-                navigate(`/${page.title}`);
+                navigate(`/${page.slug}`);
             }
         }
     };

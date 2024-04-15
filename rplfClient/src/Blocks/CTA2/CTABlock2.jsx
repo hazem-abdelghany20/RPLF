@@ -21,7 +21,7 @@ const CTA2 = ({ block }) => {
     };
 
     return (
-        <div className="flex flex-row bg-[#e1a54f] xsm:w-[70%] lg:w-[27%] h-[30vh] sm:h-[25vh] md:h-[20vh] lg:h-[25vh] mt-[25px] px-8 mx-auto lg:mx-1">
+        <div className="flex flex-row bg-[#e1a54f] xsm:w-[80%] lg:w-[27%] h-[30vh] sm:h-[25vh] md:h-[20vh] lg:h-[25vh] mt-[25px] px-8 mx-auto lg:mx-1">
             <div className="header text-left">
                 <h3>{block[0].headline}</h3>
             </div>

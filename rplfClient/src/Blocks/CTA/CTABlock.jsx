@@ -14,7 +14,7 @@ const CTA = ({ block }) => {
     };
 
     return (
-        <div className="flex flex-col lg:flex-row bg-[#063948] gap-5 py-5 w-[250px] xsm:w-[350px] lg:w-[700px] lg:h-[260px] mx-auto lg:mx-2">
+        <div className="flex flex-col lg:flex-row bg-[#063948] gap-5 py-5 w-[250px] xsm:w-[350px] xsm:w-[70%] lg:w-[50%] lg:h-[30%] mx-auto lg:mx-2">
             <div className="text-left pl-5 lg:pl-12 w-full mt-[10px] my-auto">
                 <h2 className="text-2xl md:text-5xl leading-normal">{block[0].headline}</h2>
             </div>

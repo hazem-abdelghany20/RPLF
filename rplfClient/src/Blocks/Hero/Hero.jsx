@@ -8,7 +8,7 @@ const Hero = ({ hero }) => {
     return (
         <div className="h-full">
             <div
-                className="h-[1000px] lg:h-[800px] bg-center bg-no-repeat bg-cover"
+                className="h-[1200px] md:h-[1200px] lg:h-[1000px] xl:h-[800px] bg-center bg-no-repeat bg-cover"
                 style={{ backgroundImage: `url(http://localhost:3000/block-media/${hero['background_image'].filename})` }}
             >
                 <div className="flex flex-row justify-center pt-32">

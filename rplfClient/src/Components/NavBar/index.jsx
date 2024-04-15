@@ -83,7 +83,7 @@ const NavBar = ({ items, docs }) => {
     if (data !== null) {
         return (
             <div>
-                <div className="hidden lg:block absolute w-4/5 left-1/2 top-[10.5rem] bg-[#063948] bg-opacity-70 transform -translate-x-1/2">
+                <div className="hidden lg:block absolute w-4/5 left-1/2 top-[11.2rem] bg-[#063948] bg-opacity-70 transform -translate-x-1/2">
                     <div className="flex flex-row justify-between">
                         {data && data.map((item, index) => {
                             return (
@@ -97,7 +97,7 @@ const NavBar = ({ items, docs }) => {
                                 <div onMouseEnter={() => setHovering(true)}
                                     onMouseLeave={() => setHovering(false)}
                                     className={`flex flex-col justify-center  ${hovering? "animate-growFromLeft px-[20px]": 
-                                    hovering == null? "w-0":"animate-shrinkFromLeft px-0"}`}>
+                                    hovering == null? "w-0 ":"animate-shrinkFromLeft px-0 hidden"}`}>
                                     <TextField
                                         onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}
                                         variant="outlined"

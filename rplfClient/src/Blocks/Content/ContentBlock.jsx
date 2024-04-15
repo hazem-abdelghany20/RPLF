@@ -10,7 +10,7 @@ const ContentBlock = ({ content }) => {
                         <p className="text-left">{content.paragraph}</p>
                     </div>
                     {/*  */}
-                    <img className="size-9/12 md:size-5/12 pr-24" src={`http://localhost:3000/block-media/${content.media.filename}`} alt="Content Image"></img>
+                    <img className="size-[45%]" src={`http://localhost:3000/block-media/${content.media.filename}`} alt="Content Image"></img>
                 </div>
             )
         case "content_left_media":
@@ -20,7 +20,7 @@ const ContentBlock = ({ content }) => {
                         <b><h2 className='text-xl md:text-4xl text-left'>{content.headline}</h2></b>
                         <p className="text-left text-wrap overflow-wrap">{content.paragraph}</p>
                     </div>
-                    <img className="size-9/12 md:size-5/12 pl-24" src={`http://localhost:3000/block-media/${content.media.filename}`} alt="Content Image"></img>
+                    <img className="size-[45%]" src={`http://localhost:3000/block-media/${content.media.filename}`} alt="Content Image"></img>
                 </div>
 
             )
